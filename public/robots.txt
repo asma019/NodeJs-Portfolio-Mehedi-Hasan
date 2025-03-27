@@ -1,9 +1,10 @@
-# Allow all crawlers
+# *
 User-agent: *
 Allow: /
-
-# Disallow test-og page from being indexed
 Disallow: /test-og
 
-# Sitemap location
-Sitemap: https://mehedims.com/sitemap.xml 
+# Host
+Host: https://mehedims.com
+
+# Sitemaps
+Sitemap: https://mehedims.com/sitemap.xml

@@ -238,8 +238,9 @@ This portfolio includes numerous performance optimizations:
 - **Image Optimization**: Auto WebP/AVIF conversion, lazy loading, blur placeholders
 - **Font Optimization**: System font fallbacks, font display swap, preloading
 - **Code Splitting**: Automatic code splitting by Next.js
-- **CSS Optimization**: Tailwind purging, experimental optimizeCss
+- **CSS Optimization**: Tailwind purging, experimental optimizeCss with Critters for critical CSS extraction
 - **Caching Strategies**: Advanced caching headers for static assets
+- **PWA Optimization**: Complete set of properly sized icons for various devices and screen sizes
 - **Bundle Analysis**: Webpack bundle analysis for optimization opportunities
 - **Tree Shaking**: Removal of unused code
 - **Package Optimization**: optimizePackageImports for large libraries
@@ -324,6 +325,13 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## 📦 Latest Release
 
 Check out the [latest release](https://github.com/asma019/NodeJs-Portfolio-Mehedi-Hasan/releases/tag/v) for the most up-to-date version.
+
+### Recent Updates
+- Fixed CSS optimization with the addition of the Critters package
+- Updated `next.config.js` for better performance and compatibility
+- Added complete set of PWA icons for all required sizes
+- Fixed cross-origin issues by updating `allowedDevOrigins` setting
+- Ensured compatibility with Next.js 15.2.4
 
 ---
 

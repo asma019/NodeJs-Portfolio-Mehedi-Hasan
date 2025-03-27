@@ -19,16 +19,11 @@ const nextConfig = {
     minimumCacheTTL: 60, // Add cache control for images (60 seconds)
   },
   experimental: {
-    optimizeCss: {
-      // Configure CSS optimization with a specific critters mode
-      cssModules: true,
-      inlineFonts: true,
-      minify: true
-    },
+    optimizeCss: true, // Simplified CSS optimization setting
     optimizePackageImports: ['framer-motion', 'react-icons'], // Optimize large package imports
   },
-  // Allow cross-origin requests during development
-  allowedDevOrigins: ['hema.asiabio.link'], // Fix for cross-origin error
+  // String array for allowedDevOrigins
+  allowedDevOrigins: ['hema.asiabio.link'], 
 };
 
 module.exports = nextConfig; 
