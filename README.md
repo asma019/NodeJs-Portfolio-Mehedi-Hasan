@@ -2,7 +2,11 @@
 
 A modern, performance-optimized portfolio website built with Next.js and Tailwind CSS, designed to showcase a web developer's work and skills with a seamless user experience.
 
+[![GitHub stars](https://img.shields.io/github/stars/asma019/NodeJs-Portfolio-Mehedi-Hasan?style=social)](https://github.com/asma019/NodeJs-Portfolio-Mehedi-Hasan/stargazers) [![Latest Release](https://img.shields.io/github/v/release/asma019/NodeJs-Portfolio-Mehedi-Hasan?style=flat-square)](https://github.com/asma019/NodeJs-Portfolio-Mehedi-Hasan/releases/tag/v)
+
 ![Portfolio Preview](/public/images/socialshare.png)
+
+⭐ **If you find this project helpful, please consider giving it a star on GitHub!** ⭐
 
 ## 📋 Table of Contents
 
@@ -16,6 +20,7 @@ A modern, performance-optimized portfolio website built with Next.js and Tailwin
 - [Deployment](#deployment)
   - [Vercel Deployment](#vercel-deployment)
   - [Self-Hosted Deployment](#self-hosted-deployment)
+  - [PM2 Deployment](#pm2-deployment)
 - [Performance Optimizations](#performance-optimizations)
 - [SEO Features](#seo-features)
 - [Project Structure](#project-structure)
@@ -174,6 +179,58 @@ To deploy on your own server:
    }
    ```
 
+### PM2 Deployment
+
+For reliable production deployment on your own server using PM2:
+
+1. Install PM2 globally if you haven't already:
+   ```bash
+   npm install -g pm2
+   ```
+
+2. Build the project:
+   ```bash
+   npm run build
+   ```
+
+3. Create a PM2 configuration file `ecosystem.config.js`:
+   ```javascript
+   module.exports = {
+     apps: [
+       {
+         name: 'portfolio',
+         script: 'node_modules/next/dist/bin/next',
+         args: 'start',
+         instances: 'max',
+         exec_mode: 'cluster',
+         autorestart: true,
+         watch: false,
+         max_memory_restart: '1G',
+         env: {
+           NODE_ENV: 'production',
+           PORT: 3000
+         }
+       }
+     ]
+   };
+   ```
+
+4. Start your application with PM2:
+   ```bash
+   pm2 start ecosystem.config.js
+   ```
+
+5. Set up PM2 to start on system boot:
+   ```bash
+   pm2 startup
+   pm2 save
+   ```
+
+6. Monitor your application:
+   ```bash
+   pm2 monit
+   ```
+
 ## ⚡ Performance Optimizations
 
 This portfolio includes numerous performance optimizations:
@@ -264,6 +321,12 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
+## 📦 Latest Release
+
+Check out the [latest release](https://github.com/asma019/NodeJs-Portfolio-Mehedi-Hasan/releases/tag/v) for the most up-to-date version.
+
 ---
+
+⭐ **If you find this project useful, please consider [giving it a star on GitHub](https://github.com/asma019/NodeJs-Portfolio-Mehedi-Hasan)!** ⭐
 
 Built with ❤️ by [Mehedi Hasan](https://github.com/asma019)

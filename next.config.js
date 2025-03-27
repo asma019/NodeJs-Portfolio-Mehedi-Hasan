@@ -28,7 +28,7 @@ const nextConfig = {
     optimizePackageImports: ['framer-motion', 'react-icons'], // Optimize large package imports
   },
   // Allow cross-origin requests during development
-  allowedDevOrigins: [/.*/], // Add this for development ease, restrict in production
+  allowedDevOrigins: ['hema.asiabio.link'], // Fix for cross-origin error
 };
 
 module.exports = nextConfig; 
