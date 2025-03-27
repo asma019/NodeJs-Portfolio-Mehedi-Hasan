@@ -1,2 +1,269 @@
-# NodeJs-Portfolio-Mehedi-Hasan
- A modern, performance-optimized portfolio website built with Next.js and Tailwind CSS, designed to showcase a web developer's work and skills with a seamless user experience.
+# Portfolio - Mehedi Hasan
+
+A modern, performance-optimized portfolio website built with Next.js and Tailwind CSS, designed to showcase a web developer's work and skills with a seamless user experience.
+
+![Portfolio Preview](/public/images/socialshare.png)
+
+## 📋 Table of Contents
+
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Environment Variables](#environment-variables)
+- [Development](#development)
+- [Deployment](#deployment)
+  - [Vercel Deployment](#vercel-deployment)
+  - [Self-Hosted Deployment](#self-hosted-deployment)
+- [Performance Optimizations](#performance-optimizations)
+- [SEO Features](#seo-features)
+- [Project Structure](#project-structure)
+- [Customizing Content](#customizing-content)
+- [Contributing](#contributing)
+- [License](#license)
+
+## ✨ Features
+
+- **Modern UI Design**: Clean and professional interface with smooth animations
+- **Responsive Layout**: Perfect viewing experience on all devices (mobile, tablet, desktop)
+- **Dark/Light Mode**: Theme switcher with system preference detection
+- **Performance Optimized**: Fast loading with Next.js optimizations
+- **SEO Friendly**: Meta tags, Open Graph, Twitter Cards, and structured data
+- **Functional Contact Form**: SMTP email integration
+- **Progressive Web App (PWA)**: Installable on mobile devices
+- **Accessibility**: WCAG compliant for better user experience
+- **Typescript**: Type-safe code for better development experience
+- **Modular Components**: Easy to maintain and update
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 15](https://nextjs.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Icons**: [React Icons](https://react-icons.github.io/react-icons/)
+- **Email**: [Nodemailer](https://nodemailer.com/)
+- **Theme**: [next-themes](https://github.com/pacocoursey/next-themes)
+- **SEO**: Built-in Next.js metadata API
+- **Deployment**: [Vercel](https://vercel.com/)
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18.17.0 or later
+- npm or yarn package manager
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/asma019/portfolio.git
+   cd portfolio
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. Run the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Environment Variables
+
+Create a `.env.local` file in the root directory and add the following variables:
+
+```
+# SMTP Configuration for Contact Form
+SMTP_HOST=your-smtp-server.com
+SMTP_PORT=587
+SMTP_USER=your-email@example.com
+SMTP_PASSWORD=your-password
+MAIL_FROM=your-email@example.com
+
+# Site Configuration
+NEXT_PUBLIC_BASE_URL=https://yourdomain.com
+```
+
+For production, set these environment variables in your hosting platform.
+
+## 💻 Development
+
+- **Run development server with hot-reload**:
+  ```bash
+  npm run dev
+  ```
+
+- **Lint code**:
+  ```bash
+  npm run lint
+  ```
+
+- **Analyze bundle size**:
+  ```bash
+  npm run analyze
+  ```
+
+- **Generate PWA icons from your logo**:
+  ```bash
+  npm run generate-icons
+  ```
+
+## 🌐 Deployment
+
+### Vercel Deployment
+
+This project is optimized for [Vercel](https://vercel.com/), which offers the simplest deployment experience.
+
+1. Push your code to a GitHub repository
+2. Import the project in Vercel
+3. Configure the following environment variables:
+   - `SMTP_HOST`
+   - `SMTP_PORT`
+   - `SMTP_USER`
+   - `SMTP_PASSWORD`
+   - `MAIL_FROM`
+   - `NEXT_PUBLIC_BASE_URL`
+4. Deploy
+
+The project includes `vercel.json` with optimized cache settings and build configurations.
+
+### Self-Hosted Deployment
+
+To deploy on your own server:
+
+1. Build the application:
+   ```bash
+   npm run build
+   ```
+
+2. Start the production server:
+   ```bash
+   npm run start
+   ```
+
+3. For containerized deployment, use the provided `Dockerfile`:
+   ```bash
+   docker build -t portfolio .
+   docker run -p 3000:3000 portfolio
+   ```
+
+4. For a reverse proxy setup (Nginx example):
+   ```nginx
+   server {
+     listen 80;
+     server_name yourdomain.com;
+
+     location / {
+       proxy_pass http://localhost:3000;
+       proxy_http_version 1.1;
+       proxy_set_header Upgrade $http_upgrade;
+       proxy_set_header Connection 'upgrade';
+       proxy_set_header Host $host;
+       proxy_cache_bypass $http_upgrade;
+     }
+   }
+   ```
+
+## ⚡ Performance Optimizations
+
+This portfolio includes numerous performance optimizations:
+
+- **Image Optimization**: Auto WebP/AVIF conversion, lazy loading, blur placeholders
+- **Font Optimization**: System font fallbacks, font display swap, preloading
+- **Code Splitting**: Automatic code splitting by Next.js
+- **CSS Optimization**: Tailwind purging, experimental optimizeCss
+- **Caching Strategies**: Advanced caching headers for static assets
+- **Bundle Analysis**: Webpack bundle analysis for optimization opportunities
+- **Tree Shaking**: Removal of unused code
+- **Package Optimization**: optimizePackageImports for large libraries
+- **Console Removal**: Production builds have console logs removed
+
+## 🔍 SEO Features
+
+- **Metadata API**: Comprehensive SEO metadata using Next.js Metadata API
+- **Sitemap**: Automatic sitemap generation with `next-sitemap`
+- **Robots.txt**: Custom robots.txt configuration
+- **Structured Data**: JSON-LD implementation for rich snippets
+- **Social Media**: Open Graph and Twitter Card metadata
+- **Canonical URLs**: Prevents duplicate content issues
+- **Mobile Friendly**: Responsive design, verified with Google Mobile-Friendly Test
+
+## 📁 Project Structure
+
+```
+portfolio/
+├── app/                  # Next.js App Router
+│   ├── api/              # API routes (contact form handler)
+│   ├── components/       # Reusable UI components
+│   ├── sections/         # Page sections (Hero, About, etc.)
+│   ├── test-og/          # OG image testing page
+│   ├── layout.tsx        # Root layout with metadata
+│   └── page.tsx          # Home page
+├── public/               # Static assets
+│   ├── icons/            # App icons for PWA
+│   ├── images/           # Images used in the site
+│   ├── manifest.json     # PWA manifest
+│   ├── robots.txt        # Robots configuration
+│   └── sitemap.xml       # XML sitemap
+├── scripts/              # Utility scripts
+│   └── generate-icons.js # Icon generation script
+├── .env.local            # Local environment variables
+├── next.config.js        # Next.js configuration
+├── vercel.json           # Vercel-specific configuration
+├── next-sitemap.config.js # Sitemap generator config
+├── tailwind.config.js    # Tailwind CSS configuration
+└── package.json          # Project dependencies and scripts
+```
+
+## 🎨 Customizing Content
+
+### Personal Information
+
+Edit your personal information in the following files:
+
+- **Contact Information**: `app/sections/Contact.tsx`
+- **About Me**: `app/sections/About.tsx`
+- **Work Experience**: `app/sections/Experience.tsx`
+- **Projects**: `app/sections/Projects.tsx`
+- **Testimonials**: `app/sections/Testimonials.tsx`
+- **Skills**: `app/sections/About.tsx` (skills array)
+
+### Theme Customization
+
+1. **Colors**: Edit `tailwind.config.js` to change the color scheme
+2. **Typography**: Modify font settings in `app/layout.tsx`
+3. **Dark Mode**: Dark mode styling is controlled by `dark:` prefixed classes
+
+### Adding New Sections
+
+1. Create a new component in `app/sections/`
+2. Import and add it to `app/page.tsx`
+3. Add a navigation link in `app/components/Navbar.tsx`
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+---
+
+Built with ❤️ by [Mehedi Hasan](https://github.com/asma019)
