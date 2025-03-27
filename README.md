@@ -58,8 +58,8 @@ A modern, performance-optimized portfolio website built with Next.js and Tailwin
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/asma019/portfolio.git
-   cd portfolio
+   git clone https://github.com/asma019/NodeJs-Portfolio-Mehedi-Hasan.git
+   cd NodeJs-Portfolio-Mehedi-Hasan
    ```
 
 2. Install dependencies:
