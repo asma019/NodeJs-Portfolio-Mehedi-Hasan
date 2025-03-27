@@ -2,7 +2,7 @@
 
 A modern, performance-optimized portfolio website built with Next.js and Tailwind CSS, designed to showcase a web developer's work and skills with a seamless user experience.
 
-[![GitHub stars](https://img.shields.io/github/stars/asma019/NodeJs-Portfolio-Mehedi-Hasan?style=social)](https://github.com/asma019/NodeJs-Portfolio-Mehedi-Hasan/stargazers) [![Latest Release](https://img.shields.io/github/v/release/asma019/NodeJs-Portfolio-Mehedi-Hasan?style=flat-square)](https://github.com/asma019/NodeJs-Portfolio-Mehedi-Hasan/releases/tag/v)
+[![GitHub stars](https://img.shields.io/github/stars/asma019/NodeJs-Portfolio-Mehedi-Hasan?style=social)](https://github.com/asma019/NodeJs-Portfolio-Mehedi-Hasan/stargazers) [![Latest Release](https://img.shields.io/github/v/release/asma019/NodeJs-Portfolio-Mehedi-Hasan?style=flat-square)](https://github.com/asma019/NodeJs-Portfolio-Mehedi-Hasan/releases/tag/v1.1)
 
 ![Portfolio Preview](/public/images/socialshare.png)
 
