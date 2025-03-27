@@ -19,9 +19,16 @@ const nextConfig = {
     minimumCacheTTL: 60, // Add cache control for images (60 seconds)
   },
   experimental: {
-    optimizeCss: true, // Optimize CSS
+    optimizeCss: {
+      // Configure CSS optimization with a specific critters mode
+      cssModules: true,
+      inlineFonts: true,
+      minify: true
+    },
     optimizePackageImports: ['framer-motion', 'react-icons'], // Optimize large package imports
   },
+  // Allow cross-origin requests during development
+  allowedDevOrigins: [/.*/], // Add this for development ease, restrict in production
 };
 
 module.exports = nextConfig; 
