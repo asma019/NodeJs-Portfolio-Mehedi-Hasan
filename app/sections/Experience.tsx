@@ -6,6 +6,20 @@ import { FiBriefcase, FiCalendar, FiCheck, FiExternalLink, FiMapPin } from "reac
 const Experience = () => {
   const experiences = [
     {
+      title: "WordPress & Server Management Specialist",
+      company: "Freelance",
+      location: "Remote",
+      period: "2021 - Present",
+      description: [
+        "Optimized 30+ WordPress websites to achieve 90%+ PageSpeed scores through advanced caching, code optimization, and CDN implementation",
+        "Set up and configured various VPS control panels including cPanel, Webuzo, CyberPanel, and HostiaCP for optimal performance",
+        "Implemented server-side optimizations for WordPress sites including NGINX, Redis, and Memcached caching solutions",
+        "Provided ongoing maintenance and security hardening for clients' WordPress installations and server environments",
+      ],
+      skills: ["WordPress Speed Optimization", "VPS Management", "cPanel", "CyberPanel", "Webuzo", "HostiaCP", "NGINX"],
+      url: null,
+    },
+    {
       title: "Senior Freelance Web Developer",
       company: "Upwork & Fiverr",
       location: "Remote",
@@ -17,21 +31,21 @@ const Experience = () => {
         "Maintained 4.9+ star rating across freelancing platforms with 95% client satisfaction rate",
       ],
       skills: ["React", "Next.js", "Tailwind CSS", "TypeScript", "Framer Motion"],
-      url: "https://www.upwork.com/freelancers/~012345",
+      url: "https://www.fiverr.com/mehedims0",
     },
     {
       title: "Technical Content Creator",
-      company: "Medium & Personal Blog",
+      company: "Personal Blog",
       location: "Online",
       period: "2021 - Present",
       description: [
         "Created a technical blog focusing on web development best practices and tutorials",
-        "Published 20+ articles on React, Next.js, and modern web development techniques",
+        "Published 20+ articles on PHP, React, Next.js, and modern web development techniques in my websites",
         "Built an audience of 1,000+ followers interested in web development and programming",
         "Developed interactive code examples and demos to accompany educational content",
       ],
-      skills: ["Technical Writing", "Web Tutorials", "Code Examples", "SEO"],
-      url: "https://medium.com/@yourusername",
+      skills: ["Technical Writing", "Web Tutorials", "PHP", "React", "Next.js", "SEO"],
+      url: "https://diploma.icu",
     },
     {
       title: "Front-End Developer Intern",

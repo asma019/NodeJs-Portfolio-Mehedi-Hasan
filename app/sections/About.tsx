@@ -14,6 +14,8 @@ const About = () => {
     { name: "Express", level: 75 },
     { name: "Java", level: 60 },
     { name: "MySQL", level: 70 },
+    { name: "WordPress", level: 92 },
+    { name: "Server Management", level: 85 },
   ];
 
   const categories = [
@@ -36,6 +38,16 @@ const About = () => {
       icon: <FiLayout size={24} />,
       title: "Design",
       skills: ["Responsive Design", "UI/UX Basics"],
+    },
+    {
+      icon: <FiGlobe size={24} />,
+      title: "WordPress",
+      skills: ["WordPress Speed Optimization", "Theme Development", "Plugin Customization"],
+    },
+    {
+      icon: <FiServer size={24} />,
+      title: "Server Management",
+      skills: ["cPanel", "Webuzo", "CyberPanel", "HostiaCP", "VPS Configuration"],
     },
   ];
 
@@ -109,6 +121,7 @@ const About = () => {
               >
                 I specialize in building responsive websites, e-commerce platforms, and custom web applications 
                 for clients on Fiverr and other platforms, turning complex requirements into elegant, user-friendly solutions.
+                I'm also an expert in WordPress speed optimization and VPS control panel setup including cPanel, Webuzo, CyberPanel, and HostiaCP.
               </motion.p>
             </div>
             

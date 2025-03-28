@@ -90,18 +90,39 @@ const Footer = () => {
                 <Link href="#contact" className="text-gray-400 hover:text-white transition-colors">
                   Contact
                 </Link>
+                <a 
+                  href="https://github.com/asma019/NodeJs-Portfolio-Mehedi-Hasan" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-white transition-colors flex items-center"
+                >
+                  <FiGithub className="inline mr-1" size={14} />
+                  GitHub Repo
+                </a>
               </nav>
             </div>
           </div>
         </div>
         
         <div className="relative border-t border-gray-800 mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm mb-4 sm:mb-0">
-            &copy; {currentYear} Mehedi Hasan. All rights reserved.
-            <Link href="/test-og" className="opacity-0 ml-2 hover:opacity-100 transition-opacity underline">
-              OG Test
-            </Link>
-          </p>
+          <div className="flex flex-col items-center sm:items-start mb-4 sm:mb-0">
+            <p className="text-gray-400 text-sm mb-2">
+              &copy; {currentYear} Mehedi Hasan. All rights reserved.
+              <Link href="/test-og" className="opacity-0 ml-2 hover:opacity-100 transition-opacity underline">
+                OG Test
+              </Link>
+            </p>
+            <a 
+              href="https://github.com/asma019/NodeJs-Portfolio-Mehedi-Hasan" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-xs flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+            >
+              <FiGithub size={14} />
+              <span>Open Source on GitHub</span>
+              <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></div>
+            </a>
+          </div>
           
           <div className="flex items-center gap-2 text-gray-400 text-sm">
             <span>Made with</span>
