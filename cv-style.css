@@ -1,0 +1,304 @@
+/* Modern CV Styling */
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #1e40af;
+    --accent-color: #3b82f6;
+    --text-color: #1f2937;
+    --light-text: #6b7280;
+    --background: #ffffff;
+    --section-bg: #f8fafc;
+    --border-color: #e2e8f0;
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.7;
+    color: var(--text-color);
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px;
+    background: var(--background);
+}
+
+/* Header Section */
+h1 {
+    color: var(--primary-color);
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.025em;
+    position: relative;
+    display: inline-block;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+h1 + p {
+    color: var(--light-text);
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    font-weight: 500;
+    max-width: 800px;
+}
+
+/* Contact Info */
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    background: var(--section-bg);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--primary-color);
+}
+
+.contact-info a {
+    color: var(--primary-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    background: var(--background);
+}
+
+.contact-info a:hover {
+    color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+/* Section Headers */
+h2 {
+    color: var(--primary-color);
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--border-color);
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+h3 {
+    color: var(--secondary-color);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 1.75rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+h3::before {
+    content: '▹';
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+h4 {
+    color: var(--light-text);
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+/* Lists */
+ul {
+    padding-left: 1.5rem;
+    margin: 0.75rem 0;
+}
+
+li {
+    margin-bottom: 0.75rem;
+    position: relative;
+    line-height: 1.6;
+    padding-left: 1.5rem;
+}
+
+li::before {
+    content: "▹";
+    color: var(--primary-color);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Links */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-weight: 500;
+}
+
+a:hover {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+/* Strong Text */
+strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Horizontal Rule */
+hr {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 2.5rem 0;
+}
+
+/* Blockquotes */
+blockquote {
+    border-left: 4px solid var(--primary-color);
+    margin: 1.25rem 0;
+    padding: 1rem 1.5rem;
+    background: var(--section-bg);
+    border-radius: 0 8px 8px 0;
+    color: var(--light-text);
+    font-style: italic;
+    position: relative;
+}
+
+blockquote::before {
+    content: '"';
+    position: absolute;
+    top: -0.5rem;
+    left: -0.5rem;
+    font-size: 3rem;
+    color: var(--primary-color);
+    opacity: 0.2;
+}
+
+/* Code Blocks */
+code {
+    background-color: var(--section-bg);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 0.9em;
+    color: var(--primary-color);
+    border: 1px solid var(--border-color);
+}
+
+pre {
+    background-color: var(--section-bg);
+    padding: 1.25rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 1.25rem 0;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 1.25rem 0;
+    background: var(--background);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+}
+
+th, td {
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+}
+
+th {
+    background-color: var(--section-bg);
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+tr:nth-child(even) {
+    background-color: var(--section-bg);
+}
+
+/* Print Styles */
+@media print {
+    body {
+        padding: 20px;
+        background: white;
+    }
+    
+    .contact-info {
+        background: white;
+        border: 1px solid var(--border-color);
+        box-shadow: none;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    
+    h1, h2, h3, h4 {
+        page-break-after: avoid;
+    }
+    
+    ul, ol {
+        page-break-inside: avoid;
+    }
+    
+    table {
+        page-break-inside: avoid;
+        box-shadow: none;
+    }
+    
+    blockquote {
+        background: white;
+        border: 1px solid var(--border-color);
+    }
+    
+    pre, code {
+        background: white;
+        border: 1px solid var(--border-color);
+    }
+} 

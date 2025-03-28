@@ -27,6 +27,7 @@ A modern, performance-optimized portfolio website built with Next.js and Tailwin
 - [Customizing Content](#customizing-content)
 - [Contributing](#contributing)
 - [License](#license)
+- [Generating PDF CV](#generating-pdf-cv)
 
 ## ✨ Features
 
@@ -255,6 +256,14 @@ This portfolio includes numerous performance optimizations:
 - **Social Media**: Open Graph and Twitter Card metadata
 - **Canonical URLs**: Prevents duplicate content issues
 - **Mobile Friendly**: Responsive design, verified with Google Mobile-Friendly Test
+- **Meta Tags**: Optimized for better search engine visibility
+- **Open Graph**: Improves social media sharing
+- **Twitter Cards**: Enhances social media sharing
+- **Sitemap**: Helps search engines crawl and index your site
+- **Robots.txt**: Controls how search engines crawl and index your site
+- **Structured Data**: Improves search engine visibility and social media sharing
+- **Canonical URLs**: Prevents duplicate content issues
+- **Mobile Optimization**: Responsive design, verified with Google Mobile-Friendly Test
 
 ## 📁 Project Structure
 
@@ -332,6 +341,28 @@ Check out the [latest release](https://github.com/asma019/NodeJs-Portfolio-Mehed
 - Added complete set of PWA icons for all required sizes
 - Fixed cross-origin issues by updating `allowedDevOrigins` setting
 - Ensured compatibility with Next.js 15.2.4
+
+## 📄 Generating PDF CV
+
+The portfolio includes a professional CV in both Markdown and PDF formats. To generate the PDF version:
+
+1. Install mdpdf globally:
+```bash
+npm install -g mdpdf
+```
+
+2. Generate the PDF:
+```bash
+mdpdf CV.md --style cv-style.css --output Mehedi_Hasan_CV.pdf
+```
+
+The PDF will be generated with modern styling including:
+- Clean typography
+- Professional color scheme
+- Responsive layout
+- Print-friendly formatting
+- Interactive elements
+- Modern visual hierarchy
 
 ---
 

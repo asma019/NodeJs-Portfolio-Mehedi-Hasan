@@ -13,9 +13,9 @@ const Education = () => {
     },
     {
       degree: "Secondary School Certificate",
-      institution: "Bangladesh Education Board",
-      period: "2022",
-      description: "Completed secondary education with focus on science and technology subjects, developing a strong foundation for higher education.",
+      institution: "Hope Technical Institute",
+      period: "2021 - 2022",
+      description: "In 2022, I completed my Secondary School Certificate with a focus on General Mechanics, building a solid foundation in technical and mechanical concepts for further studies.",
     },
   ];
 
