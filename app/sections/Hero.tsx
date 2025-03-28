@@ -84,7 +84,9 @@ const Hero = () => {
                 <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
               </a>
               <a 
-                href="#" 
+                href="/Mehedi_Hasan_CV.pdf" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-6 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-medium rounded-full shadow-md hover:shadow-lg border border-gray-200 dark:border-gray-700 transition-all duration-300 flex items-center group hover:bg-gray-50 dark:hover:bg-gray-700"
               >
                 Download CV
