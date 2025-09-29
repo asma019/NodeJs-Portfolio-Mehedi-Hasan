@@ -21,85 +21,101 @@ const Projects = () => {
       id: 1,
       title: "BD Tools - Developer Tools Platform",
       description: "Professional tool suite for developers and digital marketers including User Agent Generator, Fake Name Generator, and Address Lookup with API integration and premium features.",
-      image: "/images/bdtools-home.png",
+      image: "/images/placeholder-project.jpg",
+      imageAlt: "BD Tools - Developer Tools Platform Homepage",
       github: "https://github.com/asma019/bdtools-project",
       demo: "https://bdtools.cc/",
       category: "tools",
       tags: ["React", "API Integration", "Developer Tools", "Premium"],
       featured: true,
+      color: "from-blue-500 to-cyan-500"
     },
     {
       id: 2,
       title: "Salman Shafi Blog",
       description: "Modern WordPress blog with custom theme design, SEO optimization, and content management system. Clean typography and responsive layout for optimal reading experience.",
-      image: "/images/salman-blog.png",
+      image: "/images/placeholder-project.jpg",
+      imageAlt: "Salman Shafi Blog - WordPress Website",
       github: "#",
       demo: "https://salmanshafi.net/",
       category: "web",
       tags: ["WordPress", "Custom Theme", "SEO", "Responsive"],
       featured: true,
+      color: "from-purple-500 to-pink-500"
     },
     {
       id: 3,
       title: "AFK Zone - Premium Learning Platform",
       description: "Comprehensive e-learning platform with expert-led courses, progress tracking, certificates, and job assistance. Features CPA marketing and web development courses.",
-      image: "/images/afkzone-home.png",
+      image: "/images/placeholder-project.jpg",
+      imageAlt: "AFK Zone - Premium Learning Platform",
       github: "#",
       demo: "https://afkzone.org/",
       category: "saas",
       tags: ["E-Learning", "Course Management", "Certificates", "Progress Tracking"],
       featured: true,
+      color: "from-green-500 to-teal-500"
     },
     {
       id: 4,
       title: "JellyTools - Web Utilities Suite",
       description: "All-in-one web tools platform with image conversion, screen recording, password generation, and domain utilities. Browser-based tools for developers and content creators.",
-      image: "/images/jellytools.png",
+      image: "/images/placeholder-project.jpg",
+      imageAlt: "JellyTools - Web Utilities Platform",
       github: "#",
       demo: "https://jellytools.io/",
       category: "tools",
       tags: ["Web Tools", "Image Processing", "Utilities", "Browser-based"],
+      color: "from-orange-500 to-red-500"
     },
     {
       id: 5,
       title: "AsiaBio Link - Marketing Platform",
       description: "Comprehensive marketing platform with bio pages, URL shortening, QR codes, file hosting, and 126+ web tools. Trusted by 2,312+ creators for digital marketing.",
-      image: "/images/asiabio.png",
+      image: "/images/placeholder-project.jpg",
+      imageAlt: "AsiaBio Link - Marketing Platform",
       github: "#",
       demo: "https://asiabio.link/",
       category: "saas",
       tags: ["Marketing Tools", "Bio Pages", "URL Shortener", "QR Codes"],
+      color: "from-indigo-500 to-purple-500"
     },
     {
       id: 6,
       title: "Buy A Pet UK - Speed Optimized",
       description: "UK's fastest-growing pet classifieds platform with advanced search, secure payments, and mobile optimization. Performance-optimized e-commerce solution for pet marketplace.",
-      image: "/images/buyapet.png",
+      image: "/images/placeholder-project.jpg",
+      imageAlt: "Buy A Pet UK - Pet Marketplace",
       github: "#",
       demo: "https://buyapet.co.uk/",
       category: "ecommerce",
       tags: ["E-commerce", "Performance", "Mobile Optimized", "Classifieds"],
       featured: true,
+      color: "from-yellow-500 to-orange-500"
     },
     {
       id: 7,
       title: "VaratiyaBD - Tenant Management SaaS",
       description: "Modern property management system with cloud-based architecture, SMS notifications, 100+ modules, and comprehensive reporting. Trusted by 50+ landlords in Bangladesh.",
-      image: "/images/varatiya.png",
+      image: "/images/placeholder-project.jpg",
+      imageAlt: "VaratiyaBD - Tenant Management System",
       github: "#",
       demo: "https://varatiyabd.com/",
       category: "saas",
       tags: ["Property Management", "SaaS", "SMS Integration", "Bengali"],
+      color: "from-teal-500 to-green-500"
     },
     {
       id: 8,
       title: "Ajker Program - Educational Platform",
       description: "Comprehensive educational platform focused on data communication and computer networking. Features detailed tutorials, examples, and academic content in Bengali language.",
-      image: "/images/ajkerprogram.png",
+      image: "/images/placeholder-project.jpg",
+      imageAlt: "Ajker Program - Educational Platform",
       github: "#",
       demo: "https://ajkerprogram.com/",
       category: "web",
       tags: ["Education", "Computer Science", "Bengali Content", "Tutorials"],
+      color: "from-pink-500 to-rose-500"
     },
   ];
 
@@ -107,6 +123,25 @@ const Projects = () => {
   const filteredProjects = activeCategory === "all" 
     ? projects 
     : projects.filter(project => project.category === activeCategory);
+
+  // Placeholder component for when images fail to load
+  const PlaceholderImage = ({ project }: { project: any }) => (
+    <div className={`relative h-56 w-full bg-gradient-to-br ${project.color} flex items-center justify-center`}>
+      <div className="text-center text-white p-6">
+        <div className="w-16 h-16 mx-auto mb-3 bg-white/20 rounded-full flex items-center justify-center">
+          {project.category === 'tools' && <FiCode size={28} />}
+          {project.category === 'web' && <FiFolder size={28} />}
+          {project.category === 'ecommerce' && <FiExternalLink size={28} />}
+          {project.category === 'saas' && <FiCode size={28} />}
+        </div>
+        <h3 className="font-bold text-lg mb-1">{project.title}</h3>
+        <p className="text-sm opacity-90 line-clamp-2">{project.description.substring(0, 80)}...</p>
+      </div>
+      <div className="absolute top-4 right-4 text-xs bg-white/20 px-2 py-1 rounded-full">
+        {project.category.toUpperCase()}
+      </div>
+    </div>
+  );
 
   return (
     <section id="projects" className="section-padding bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900">
@@ -165,25 +200,21 @@ const Projects = () => {
               }`}
             >
               <div className="relative h-56 w-full overflow-hidden">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
+                {/* Use placeholder image component for better visual experience */}
+                <PlaceholderImage project={project} />
+                
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 
                 {/* Featured badge */}
                 {project.featured && (
-                  <div className="absolute top-4 left-4">
+                  <div className="absolute top-4 left-4 z-10">
                     <span className="px-2 py-1 bg-blue-500 text-white text-xs font-medium rounded-full">
                       Featured
                     </span>
                   </div>
                 )}
                 
-                <div className="absolute top-4 right-4 flex space-x-2">
+                <div className="absolute top-4 right-4 flex space-x-2 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   {project.github !== "#" && (
                     <a
                       href={project.github}
@@ -205,7 +236,8 @@ const Projects = () => {
                     <FiExternalLink size={16} />
                   </a>
                 </div>
-                <div className="absolute bottom-4 left-4 right-4">
+                
+                <div className="absolute bottom-4 left-4 right-4 z-10">
                   <div className="flex flex-wrap gap-2 mb-2">
                     {project.tags.slice(0, 3).map((tag, idx) => (
                       <span
@@ -221,12 +253,12 @@ const Projects = () => {
                       </span>
                     )}
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-1 group-hover:text-blue-300 transition-colors duration-300">
-                    {project.title}
-                  </h3>
                 </div>
               </div>
               <div className="p-6">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                  {project.title}
+                </h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
                   {project.description}
                 </p>
