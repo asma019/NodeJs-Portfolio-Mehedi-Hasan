@@ -11,103 +11,95 @@ const Projects = () => {
   const categories = [
     { id: "all", label: "All" },
     { id: "web", label: "Web Apps" },
-    { id: "portfolio", label: "Portfolio" },
     { id: "tools", label: "Tools" },
+    { id: "ecommerce", label: "E-commerce" },
+    { id: "saas", label: "SaaS" },
   ];
   
   const projects = [
     {
       id: 1,
-      title: "Modern Portfolio Website",
-      description: "A performance-optimized portfolio website built with Next.js 15 and Tailwind CSS, featuring smooth animations, SEO optimization, and a functional contact form.",
-      image: "/images/project1.jpg",
-      github: "https://github.com/asma019/NodeJs-Portfolio-Mehedi-Hasan",
-      demo: "https://node-js-portfolio-mehedi-hasan.vercel.app",
-      category: "portfolio",
-      tags: ["Next.js 15", "TypeScript", "Tailwind CSS", "Framer Motion"],
+      title: "BD Tools - Developer Tools Platform",
+      description: "Professional tool suite for developers and digital marketers including User Agent Generator, Fake Name Generator, and Address Lookup with API integration and premium features.",
+      image: "/images/bdtools-home.png",
+      github: "https://github.com/asma019/bdtools-project",
+      demo: "https://bdtools.cc/",
+      category: "tools",
+      tags: ["React", "API Integration", "Developer Tools", "Premium"],
       featured: true,
     },
     {
       id: 2,
-      title: "System Admin Portfolio",
-      description: "An open-source portfolio template for System Admins & Tech Experts with glass morphism UI, AWS SES integration, and complete SEO optimization.",
-      image: "/images/project2.jpg",
-      github: "https://github.com/asma019/Next.js-Portfolio-for-System-Admins",
-      demo: "https://next-js-portfolio-for-system-admins.vercel.app",
-      category: "portfolio",
-      tags: ["Next.js 15", "AWS SES", "Glass UI", "SEO"],
+      title: "Salman Shafi Blog",
+      description: "Modern WordPress blog with custom theme design, SEO optimization, and content management system. Clean typography and responsive layout for optimal reading experience.",
+      image: "/images/salman-blog.png",
+      github: "#",
+      demo: "https://salmanshafi.net/",
+      category: "web",
+      tags: ["WordPress", "Custom Theme", "SEO", "Responsive"],
       featured: true,
     },
     {
       id: 3,
-      title: "EMI Calculator",
-      description: "A responsive loan EMI calculator with interactive sliders, amortization schedule, CSV export, and WordPress embedding support. Built for financial calculations.",
-      image: "/images/project3.jpg",
-      github: "https://github.com/asma019/EMI-Calculator-usign-NexJS",
-      demo: "https://emi-calculator-usign-nex-js.vercel.app",
-      category: "tools",
-      tags: ["Next.js", "TypeScript", "Financial", "CSV Export"],
+      title: "AFK Zone - Premium Learning Platform",
+      description: "Comprehensive e-learning platform with expert-led courses, progress tracking, certificates, and job assistance. Features CPA marketing and web development courses.",
+      image: "/images/afkzone-home.png",
+      github: "#",
+      demo: "https://afkzone.org/",
+      category: "saas",
+      tags: ["E-Learning", "Course Management", "Certificates", "Progress Tracking"],
       featured: true,
     },
     {
       id: 4,
-      title: "Client Portfolio - Redwan",
-      description: "A custom portfolio website designed and developed for client Redwan, featuring modern design principles and responsive layout.",
-      image: "/images/project4.jpg",
-      github: "https://github.com/asma019/Portfoilo-for-Client-Redwan",
-      demo: "#",
-      category: "portfolio",
-      tags: ["TypeScript", "Custom Design", "Client Work"],
+      title: "JellyTools - Web Utilities Suite",
+      description: "All-in-one web tools platform with image conversion, screen recording, password generation, and domain utilities. Browser-based tools for developers and content creators.",
+      image: "/images/jellytools.png",
+      github: "#",
+      demo: "https://jellytools.io/",
+      category: "tools",
+      tags: ["Web Tools", "Image Processing", "Utilities", "Browser-based"],
     },
     {
       id: 5,
-      title: "Record Screen Tool",
-      description: "A free and open-source screen recording application with a clean interface and essential recording features for content creators.",
-      image: "/images/project5.jpg",
-      github: "https://github.com/asma019/Record-Screen",
-      demo: "http://recordscreen.me",
-      category: "tools",
-      tags: ["HTML", "JavaScript", "Screen Recording", "Open Source"],
+      title: "AsiaBio Link - Marketing Platform",
+      description: "Comprehensive marketing platform with bio pages, URL shortening, QR codes, file hosting, and 126+ web tools. Trusted by 2,312+ creators for digital marketing.",
+      image: "/images/asiabio.png",
+      github: "#",
+      demo: "https://asiabio.link/",
+      category: "saas",
+      tags: ["Marketing Tools", "Bio Pages", "URL Shortener", "QR Codes"],
     },
     {
       id: 6,
-      title: "React Image Converter",
-      description: "A React-based image conversion tool that allows users to convert images between different formats with a clean and intuitive interface.",
-      image: "/images/project6.jpg",
-      github: "https://github.com/asma019/react-image-converter",
-      demo: "#",
-      category: "tools",
-      tags: ["React", "TypeScript", "Image Processing"],
+      title: "Buy A Pet UK - Speed Optimized",
+      description: "UK's fastest-growing pet classifieds platform with advanced search, secure payments, and mobile optimization. Performance-optimized e-commerce solution for pet marketplace.",
+      image: "/images/buyapet.png",
+      github: "#",
+      demo: "https://buyapet.co.uk/",
+      category: "ecommerce",
+      tags: ["E-commerce", "Performance", "Mobile Optimized", "Classifieds"],
+      featured: true,
     },
     {
       id: 7,
-      title: "Town Ship Website",
-      description: "A modern township website with interactive features and clean design, showcasing community information and services.",
-      image: "/images/project7.jpg",
-      github: "https://github.com/asma019/town-ship",
-      demo: "https://town-ship.vercel.app",
-      category: "web",
-      tags: ["TypeScript", "Community", "Responsive"],
+      title: "VaratiyaBD - Tenant Management SaaS",
+      description: "Modern property management system with cloud-based architecture, SMS notifications, 100+ modules, and comprehensive reporting. Trusted by 50+ landlords in Bangladesh.",
+      image: "/images/varatiya.png",
+      github: "#",
+      demo: "https://varatiyabd.com/",
+      category: "saas",
+      tags: ["Property Management", "SaaS", "SMS Integration", "Bengali"],
     },
     {
       id: 8,
-      title: "Project Notes App",
-      description: "A note-taking application for project management with clean UI and essential features for organizing development notes and ideas.",
-      image: "/images/project8.jpg",
-      github: "https://github.com/asma019/project-note",
-      demo: "https://project-note-xi.vercel.app",
-      category: "tools",
-      tags: ["TypeScript", "Note Taking", "Project Management"],
-    },
-    {
-      id: 9,
-      title: "BDIX Server Tool",
-      description: "A PHP-based tool for BDIX server management and monitoring, providing essential utilities for network administrators.",
-      image: "/images/project9.jpg",
-      github: "https://github.com/asma019/BDIX-2",
-      demo: "#",
-      category: "tools",
-      tags: ["PHP", "Server Management", "Network Tools"],
+      title: "Ajker Program - Educational Platform",
+      description: "Comprehensive educational platform focused on data communication and computer networking. Features detailed tutorials, examples, and academic content in Bengali language.",
+      image: "/images/ajkerprogram.png",
+      github: "#",
+      demo: "https://ajkerprogram.com/",
+      category: "web",
+      tags: ["Education", "Computer Science", "Bengali Content", "Tutorials"],
     },
   ];
 
@@ -126,11 +118,11 @@ const Projects = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-3 py-1 text-sm font-medium text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/40 rounded-full mb-4">My Portfolio</span>
+          <span className="inline-block px-3 py-1 text-sm font-medium text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/40 rounded-full mb-4">Client Projects</span>
           <h2 className="heading-lg text-gray-900 dark:text-white mb-4">Featured Projects</h2>
           <div className="h-1 w-20 bg-blue-500 mx-auto"></div>
           <p className="paragraph text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mt-4">
-            A showcase of my latest work including modern web applications, portfolio websites, and developer tools. Each project demonstrates different technologies and problem-solving approaches.
+            A collection of professional projects including SaaS platforms, e-commerce solutions, educational websites, and developer tools. Each project demonstrates advanced functionality and modern design principles.
           </p>
         </motion.div>
 
@@ -142,7 +134,7 @@ const Projects = () => {
           transition={{ duration: 0.5 }}
           className="flex justify-center mb-16"
         >
-          <div className="bg-white dark:bg-gray-800 rounded-full p-1.5 shadow-md border border-gray-100 dark:border-gray-700 flex flex-wrap justify-center">
+          <div className="bg-white dark:bg-gray-800 rounded-full p-1.5 shadow-md border border-gray-100 dark:border-gray-700 flex flex-wrap justify-center gap-1">
             {categories.map((category) => (
               <button
                 key={category.id}
@@ -192,26 +184,26 @@ const Projects = () => {
                 )}
                 
                 <div className="absolute top-4 right-4 flex space-x-2">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white hover:text-blue-600 transition-colors duration-300"
-                    aria-label={`View GitHub repository for ${project.title}`}
-                  >
-                    <FiGithub size={16} />
-                  </a>
-                  {project.demo !== "#" && (
+                  {project.github !== "#" && (
                     <a
-                      href={project.demo}
+                      href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white hover:text-blue-600 transition-colors duration-300"
-                      aria-label={`View live demo for ${project.title}`}
+                      aria-label={`View GitHub repository for ${project.title}`}
                     >
-                      <FiExternalLink size={16} />
+                      <FiGithub size={16} />
                     </a>
                   )}
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white hover:text-blue-600 transition-colors duration-300"
+                    aria-label={`View live demo for ${project.title}`}
+                  >
+                    <FiExternalLink size={16} />
+                  </a>
                 </div>
                 <div className="absolute bottom-4 left-4 right-4">
                   <div className="flex flex-wrap gap-2 mb-2">
@@ -243,27 +235,15 @@ const Projects = () => {
                     <FiFolder className="mr-2" size={14} />
                     <span className="text-sm font-medium capitalize">{project.category.replace('_', ' ')}</span>
                   </div>
-                  {project.demo !== "#" ? (
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center text-blue-600 dark:text-blue-400 text-sm font-medium group/link hover:text-blue-700 dark:hover:text-blue-300"
-                    >
-                      View Demo
-                      <FiArrowRight className="ml-1 transform group-hover/link:translate-x-1 transition-transform duration-300" size={14} />
-                    </a>
-                  ) : (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center text-blue-600 dark:text-blue-400 text-sm font-medium group/link hover:text-blue-700 dark:hover:text-blue-300"
-                    >
-                      View Code
-                      <FiCode className="ml-1 transform group-hover/link:translate-x-1 transition-transform duration-300" size={14} />
-                    </a>
-                  )}
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-blue-600 dark:text-blue-400 text-sm font-medium group/link hover:text-blue-700 dark:hover:text-blue-300"
+                  >
+                    View Live
+                    <FiArrowRight className="ml-1 transform group-hover/link:translate-x-1 transition-transform duration-300" size={14} />
+                  </a>
                 </div>
               </div>
             </motion.div>
@@ -285,7 +265,7 @@ const Projects = () => {
             className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-medium rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
           >
             <FiGithub className="mr-2" size={18} />
-            View All Projects on GitHub
+            View More Projects on GitHub
             <FiArrowRight className="ml-2" size={16} />
           </a>
         </motion.div>
