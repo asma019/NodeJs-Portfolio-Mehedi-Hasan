@@ -1,0 +1,15 @@
+# Project Images
+
+This directory contains project screenshots and images for the portfolio.
+
+## Image List:
+- bdtools-home.png - BD Tools homepage screenshot
+- salman-blog.png - Salman Shafi Blog website
+- afkzone-home.png - AFK Zone learning platform
+- jellytools.png - JellyTools web utilities
+- asiabio.png - AsiaBio Link marketing platform
+- buyapet.png - Buy A Pet UK marketplace
+- varatiya.png - VaratiyaBD tenant management
+- ajkerprogram.png - Ajker Program educational site
+
+Note: Actual image files should be uploaded separately to maintain repository size.
