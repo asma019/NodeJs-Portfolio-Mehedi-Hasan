@@ -21,7 +21,7 @@ const Projects = () => {
       id: 1,
       title: "BD Tools - Developer Tools Platform",
       description: "Professional tool suite for developers and digital marketers including User Agent Generator, Fake Name Generator, and Address Lookup with API integration and premium features.",
-      image: "/images/placeholder-project.jpg",
+      image: "/images/placeholder-project.svg",
       imageAlt: "BD Tools - Developer Tools Platform Homepage",
       github: "https://github.com/asma019/bdtools-project",
       demo: "https://bdtools.cc/",
@@ -34,7 +34,7 @@ const Projects = () => {
       id: 2,
       title: "Salman Shafi Blog",
       description: "Modern WordPress blog with custom theme design, SEO optimization, and content management system. Clean typography and responsive layout for optimal reading experience.",
-      image: "/images/placeholder-project.jpg",
+      image: "/images/placeholder-project.svg",
       imageAlt: "Salman Shafi Blog - WordPress Website",
       github: "#",
       demo: "https://salmanshafi.net/",
@@ -47,7 +47,7 @@ const Projects = () => {
       id: 3,
       title: "AFK Zone - Premium Learning Platform",
       description: "Comprehensive e-learning platform with expert-led courses, progress tracking, certificates, and job assistance. Features CPA marketing and web development courses.",
-      image: "/images/placeholder-project.jpg",
+      image: "/images/placeholder-project.svg",
       imageAlt: "AFK Zone - Premium Learning Platform",
       github: "#",
       demo: "https://afkzone.org/",
@@ -60,7 +60,7 @@ const Projects = () => {
       id: 4,
       title: "JellyTools - Web Utilities Suite",
       description: "All-in-one web tools platform with image conversion, screen recording, password generation, and domain utilities. Browser-based tools for developers and content creators.",
-      image: "/images/placeholder-project.jpg",
+      image: "/images/placeholder-project.svg",
       imageAlt: "JellyTools - Web Utilities Platform",
       github: "#",
       demo: "https://jellytools.io/",
@@ -72,7 +72,7 @@ const Projects = () => {
       id: 5,
       title: "AsiaBio Link - Marketing Platform",
       description: "Comprehensive marketing platform with bio pages, URL shortening, QR codes, file hosting, and 126+ web tools. Trusted by 2,312+ creators for digital marketing.",
-      image: "/images/placeholder-project.jpg",
+      image: "/images/placeholder-project.svg",
       imageAlt: "AsiaBio Link - Marketing Platform",
       github: "#",
       demo: "https://asiabio.link/",
@@ -84,7 +84,7 @@ const Projects = () => {
       id: 6,
       title: "Buy A Pet UK - Speed Optimized",
       description: "UK's fastest-growing pet classifieds platform with advanced search, secure payments, and mobile optimization. Performance-optimized e-commerce solution for pet marketplace.",
-      image: "/images/placeholder-project.jpg",
+      image: "/images/placeholder-project.svg",
       imageAlt: "Buy A Pet UK - Pet Marketplace",
       github: "#",
       demo: "https://buyapet.co.uk/",
@@ -97,7 +97,7 @@ const Projects = () => {
       id: 7,
       title: "VaratiyaBD - Tenant Management SaaS",
       description: "Modern property management system with cloud-based architecture, SMS notifications, 100+ modules, and comprehensive reporting. Trusted by 50+ landlords in Bangladesh.",
-      image: "/images/placeholder-project.jpg",
+      image: "/images/placeholder-project.svg",
       imageAlt: "VaratiyaBD - Tenant Management System",
       github: "#",
       demo: "https://varatiyabd.com/",
@@ -109,7 +109,7 @@ const Projects = () => {
       id: 8,
       title: "Ajker Program - Educational Platform",
       description: "Comprehensive educational platform focused on data communication and computer networking. Features detailed tutorials, examples, and academic content in Bengali language.",
-      image: "/images/placeholder-project.jpg",
+      image: "/images/placeholder-project.svg",
       imageAlt: "Ajker Program - Educational Platform",
       github: "#",
       demo: "https://ajkerprogram.com/",
@@ -123,25 +123,6 @@ const Projects = () => {
   const filteredProjects = activeCategory === "all" 
     ? projects 
     : projects.filter(project => project.category === activeCategory);
-
-  // Placeholder component for when images fail to load
-  const PlaceholderImage = ({ project }: { project: any }) => (
-    <div className={`relative h-56 w-full bg-gradient-to-br ${project.color} flex items-center justify-center`}>
-      <div className="text-center text-white p-6">
-        <div className="w-16 h-16 mx-auto mb-3 bg-white/20 rounded-full flex items-center justify-center">
-          {project.category === 'tools' && <FiCode size={28} />}
-          {project.category === 'web' && <FiFolder size={28} />}
-          {project.category === 'ecommerce' && <FiExternalLink size={28} />}
-          {project.category === 'saas' && <FiCode size={28} />}
-        </div>
-        <h3 className="font-bold text-lg mb-1">{project.title}</h3>
-        <p className="text-sm opacity-90 line-clamp-2">{project.description.substring(0, 80)}...</p>
-      </div>
-      <div className="absolute top-4 right-4 text-xs bg-white/20 px-2 py-1 rounded-full">
-        {project.category.toUpperCase()}
-      </div>
-    </div>
-  );
 
   return (
     <section id="projects" className="section-padding bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900">
@@ -200,27 +181,38 @@ const Projects = () => {
               }`}
             >
               <div className="relative h-56 w-full overflow-hidden">
-                {/* Use placeholder image component for better visual experience */}
-                <PlaceholderImage project={project} />
+                {/* Project Image */}
+                <div className="relative h-full w-full">
+                  <Image
+                    src={project.image}
+                    alt={project.imageAlt}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  {/* Gradient overlay on top of the image for better text visibility */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${project.color} opacity-10 group-hover:opacity-20 transition-opacity duration-300`}></div>
+                </div>
                 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 
                 {/* Featured badge */}
                 {project.featured && (
                   <div className="absolute top-4 left-4 z-10">
-                    <span className="px-2 py-1 bg-blue-500 text-white text-xs font-medium rounded-full">
+                    <span className="px-2 py-1 bg-blue-500 text-white text-xs font-medium rounded-full shadow-lg">
                       Featured
                     </span>
                   </div>
                 )}
                 
+                {/* Action buttons */}
                 <div className="absolute top-4 right-4 flex space-x-2 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   {project.github !== "#" && (
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white hover:text-blue-600 transition-colors duration-300"
+                      className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white hover:text-blue-600 transition-colors duration-300 shadow-lg"
                       aria-label={`View GitHub repository for ${project.title}`}
                     >
                       <FiGithub size={16} />
@@ -230,39 +222,44 @@ const Projects = () => {
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white hover:text-blue-600 transition-colors duration-300"
+                    className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white hover:text-blue-600 transition-colors duration-300 shadow-lg"
                     aria-label={`View live demo for ${project.title}`}
                   >
                     <FiExternalLink size={16} />
                   </a>
                 </div>
                 
-                <div className="absolute bottom-4 left-4 right-4 z-10">
-                  <div className="flex flex-wrap gap-2 mb-2">
+                {/* Tags overlay */}
+                <div className="absolute bottom-4 left-4 right-4 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="flex flex-wrap gap-2">
                     {project.tags.slice(0, 3).map((tag, idx) => (
                       <span
                         key={idx}
-                        className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-white/20 backdrop-blur-sm text-white"
+                        className="text-xs font-medium px-2.5 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white shadow-md"
                       >
                         {tag}
                       </span>
                     ))}
                     {project.tags.length > 3 && (
-                      <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-white/20 backdrop-blur-sm text-white">
+                      <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white shadow-md">
                         +{project.tags.length - 3}
                       </span>
                     )}
                   </div>
                 </div>
               </div>
+              
+              {/* Project details */}
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300 line-clamp-2">
                   {project.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
+                <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed line-clamp-3">
                   {project.description}
                 </p>
-                <div className="flex justify-between items-center">
+                
+                {/* Footer */}
+                <div className="flex justify-between items-center pt-2 border-t border-gray-100 dark:border-gray-700">
                   <div className="flex items-center text-gray-500 dark:text-gray-400">
                     <FiFolder className="mr-2" size={14} />
                     <span className="text-sm font-medium capitalize">{project.category.replace('_', ' ')}</span>
@@ -271,7 +268,7 @@ const Projects = () => {
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center text-blue-600 dark:text-blue-400 text-sm font-medium group/link hover:text-blue-700 dark:hover:text-blue-300"
+                    className="inline-flex items-center text-blue-600 dark:text-blue-400 text-sm font-medium group/link hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300"
                   >
                     View Live
                     <FiArrowRight className="ml-1 transform group-hover/link:translate-x-1 transition-transform duration-300" size={14} />
