@@ -10,71 +10,104 @@ const Projects = () => {
   
   const categories = [
     { id: "all", label: "All" },
-    { id: "web", label: "Web" },
-    { id: "mobile", label: "Mobile" },
-    { id: "other", label: "Other" },
+    { id: "web", label: "Web Apps" },
+    { id: "portfolio", label: "Portfolio" },
+    { id: "tools", label: "Tools" },
   ];
   
   const projects = [
     {
       id: 1,
-      title: "E-commerce Platform",
-      description: "A full-stack e-commerce platform with user authentication, product management, and payment integration.",
+      title: "Modern Portfolio Website",
+      description: "A performance-optimized portfolio website built with Next.js 15 and Tailwind CSS, featuring smooth animations, SEO optimization, and a functional contact form.",
       image: "/images/project1.jpg",
-      github: "https://github.com/asma019/ecommerce-platform",
-      demo: "#",
-      category: "web",
-      tags: ["Next.js", "Node.js", "MongoDB"],
+      github: "https://github.com/asma019/NodeJs-Portfolio-Mehedi-Hasan",
+      demo: "https://node-js-portfolio-mehedi-hasan.vercel.app",
+      category: "portfolio",
+      tags: ["Next.js 15", "TypeScript", "Tailwind CSS", "Framer Motion"],
+      featured: true,
     },
     {
       id: 2,
-      title: "Task Management App",
-      description: "A task management application with drag-and-drop functionality, user roles, and real-time updates.",
+      title: "System Admin Portfolio",
+      description: "An open-source portfolio template for System Admins & Tech Experts with glass morphism UI, AWS SES integration, and complete SEO optimization.",
       image: "/images/project2.jpg",
-      github: "https://github.com/asma019/task-manager",
-      demo: "#",
-      category: "web",
-      tags: ["React", "Firebase", "Tailwind"],
+      github: "https://github.com/asma019/Next.js-Portfolio-for-System-Admins",
+      demo: "https://next-js-portfolio-for-system-admins.vercel.app",
+      category: "portfolio",
+      tags: ["Next.js 15", "AWS SES", "Glass UI", "SEO"],
+      featured: true,
     },
     {
       id: 3,
-      title: "Weather Forecast App",
-      description: "A weather application that provides real-time forecasts based on location with interactive maps.",
+      title: "EMI Calculator",
+      description: "A responsive loan EMI calculator with interactive sliders, amortization schedule, CSV export, and WordPress embedding support. Built for financial calculations.",
       image: "/images/project3.jpg",
-      github: "https://github.com/asma019/weather-app",
-      demo: "#",
-      category: "mobile",
-      tags: ["React Native", "API Integration"],
+      github: "https://github.com/asma019/EMI-Calculator-usign-NexJS",
+      demo: "https://emi-calculator-usign-nex-js.vercel.app",
+      category: "tools",
+      tags: ["Next.js", "TypeScript", "Financial", "CSV Export"],
+      featured: true,
     },
     {
       id: 4,
-      title: "Recipe Finder",
-      description: "A recipe finder application allowing users to search recipes by ingredients, dietary restrictions, and more.",
+      title: "Client Portfolio - Redwan",
+      description: "A custom portfolio website designed and developed for client Redwan, featuring modern design principles and responsive layout.",
       image: "/images/project4.jpg",
-      github: "https://github.com/asma019/recipe-finder",
+      github: "https://github.com/asma019/Portfoilo-for-Client-Redwan",
       demo: "#",
-      category: "web",
-      tags: ["JavaScript", "API", "CSS"],
+      category: "portfolio",
+      tags: ["TypeScript", "Custom Design", "Client Work"],
     },
     {
       id: 5,
-      title: "Budget Tracker",
-      description: "A budget tracking application with expense categorization, visualizations, and financial insights.",
+      title: "Record Screen Tool",
+      description: "A free and open-source screen recording application with a clean interface and essential recording features for content creators.",
       image: "/images/project5.jpg",
-      github: "https://github.com/asma019/budget-tracker",
-      demo: "#",
-      category: "mobile",
-      tags: ["Flutter", "Firebase"],
+      github: "https://github.com/asma019/Record-Screen",
+      demo: "http://recordscreen.me",
+      category: "tools",
+      tags: ["HTML", "JavaScript", "Screen Recording", "Open Source"],
     },
     {
       id: 6,
-      title: "Portfolio Website",
-      description: "A modern portfolio website showcasing projects, skills, and professional experience.",
+      title: "React Image Converter",
+      description: "A React-based image conversion tool that allows users to convert images between different formats with a clean and intuitive interface.",
       image: "/images/project6.jpg",
-      github: "https://github.com/asma019/portfolio",
+      github: "https://github.com/asma019/react-image-converter",
       demo: "#",
+      category: "tools",
+      tags: ["React", "TypeScript", "Image Processing"],
+    },
+    {
+      id: 7,
+      title: "Town Ship Website",
+      description: "A modern township website with interactive features and clean design, showcasing community information and services.",
+      image: "/images/project7.jpg",
+      github: "https://github.com/asma019/town-ship",
+      demo: "https://town-ship.vercel.app",
       category: "web",
-      tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
+      tags: ["TypeScript", "Community", "Responsive"],
+    },
+    {
+      id: 8,
+      title: "Project Notes App",
+      description: "A note-taking application for project management with clean UI and essential features for organizing development notes and ideas.",
+      image: "/images/project8.jpg",
+      github: "https://github.com/asma019/project-note",
+      demo: "https://project-note-xi.vercel.app",
+      category: "tools",
+      tags: ["TypeScript", "Note Taking", "Project Management"],
+    },
+    {
+      id: 9,
+      title: "BDIX Server Tool",
+      description: "A PHP-based tool for BDIX server management and monitoring, providing essential utilities for network administrators.",
+      image: "/images/project9.jpg",
+      github: "https://github.com/asma019/BDIX-2",
+      demo: "#",
+      category: "tools",
+      tags: ["PHP", "Server Management", "Network Tools"],
     },
   ];
 
@@ -97,7 +130,7 @@ const Projects = () => {
           <h2 className="heading-lg text-gray-900 dark:text-white mb-4">Featured Projects</h2>
           <div className="h-1 w-20 bg-blue-500 mx-auto"></div>
           <p className="paragraph text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mt-4">
-            A collection of projects I&apos;ve worked on, showcasing my skills and experience.
+            A showcase of my latest work including modern web applications, portfolio websites, and developer tools. Each project demonstrates different technologies and problem-solving approaches.
           </p>
         </motion.div>
 
@@ -135,7 +168,9 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 group hover:-translate-y-2"
+              className={`bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 group hover:-translate-y-2 ${
+                project.featured ? 'ring-2 ring-blue-500/20' : ''
+              }`}
             >
               <div className="relative h-56 w-full overflow-hidden">
                 <Image
@@ -146,6 +181,16 @@ const Projects = () => {
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
+                
+                {/* Featured badge */}
+                {project.featured && (
+                  <div className="absolute top-4 left-4">
+                    <span className="px-2 py-1 bg-blue-500 text-white text-xs font-medium rounded-full">
+                      Featured
+                    </span>
+                  </div>
+                )}
+                
                 <div className="absolute top-4 right-4 flex space-x-2">
                   <a
                     href={project.github}
@@ -156,19 +201,21 @@ const Projects = () => {
                   >
                     <FiGithub size={16} />
                   </a>
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white hover:text-blue-600 transition-colors duration-300"
-                    aria-label={`View live demo for ${project.title}`}
-                  >
-                    <FiExternalLink size={16} />
-                  </a>
+                  {project.demo !== "#" && (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-9 h-9 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white hover:bg-white hover:text-blue-600 transition-colors duration-300"
+                      aria-label={`View live demo for ${project.title}`}
+                    >
+                      <FiExternalLink size={16} />
+                    </a>
+                  )}
                 </div>
                 <div className="absolute bottom-4 left-4 right-4">
                   <div className="flex flex-wrap gap-2 mb-2">
-                    {project.tags.map((tag, idx) => (
+                    {project.tags.slice(0, 3).map((tag, idx) => (
                       <span
                         key={idx}
                         className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-white/20 backdrop-blur-sm text-white"
@@ -176,6 +223,11 @@ const Projects = () => {
                         {tag}
                       </span>
                     ))}
+                    {project.tags.length > 3 && (
+                      <span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-white/20 backdrop-blur-sm text-white">
+                        +{project.tags.length - 3}
+                      </span>
+                    )}
                   </div>
                   <h3 className="text-xl font-bold text-white mb-1 group-hover:text-blue-300 transition-colors duration-300">
                     {project.title}
@@ -183,23 +235,35 @@ const Projects = () => {
                 </div>
               </div>
               <div className="p-6">
-                <p className="text-gray-600 dark:text-gray-400 mb-4">
+                <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed">
                   {project.description}
                 </p>
                 <div className="flex justify-between items-center">
                   <div className="flex items-center text-gray-500 dark:text-gray-400">
-                    <FiFolder className="mr-2" />
-                    <span className="text-sm font-medium capitalize">{project.category}</span>
+                    <FiFolder className="mr-2" size={14} />
+                    <span className="text-sm font-medium capitalize">{project.category.replace('_', ' ')}</span>
                   </div>
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-blue-600 dark:text-blue-400 text-sm font-medium group/link"
-                  >
-                    View Project 
-                    <FiArrowRight className="ml-1 transform group-hover/link:translate-x-1 transition-transform duration-300" />
-                  </a>
+                  {project.demo !== "#" ? (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-blue-600 dark:text-blue-400 text-sm font-medium group/link hover:text-blue-700 dark:hover:text-blue-300"
+                    >
+                      View Demo
+                      <FiArrowRight className="ml-1 transform group-hover/link:translate-x-1 transition-transform duration-300" size={14} />
+                    </a>
+                  ) : (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-blue-600 dark:text-blue-400 text-sm font-medium group/link hover:text-blue-700 dark:hover:text-blue-300"
+                    >
+                      View Code
+                      <FiCode className="ml-1 transform group-hover/link:translate-x-1 transition-transform duration-300" size={14} />
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>
@@ -218,10 +282,11 @@ const Projects = () => {
             href="https://github.com/asma019" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-medium rounded-full shadow-md hover:shadow-lg transition-all duration-300"
+            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-medium rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
           >
-            View All Projects
-            <FiArrowRight className="ml-2" />
+            <FiGithub className="mr-2" size={18} />
+            View All Projects on GitHub
+            <FiArrowRight className="ml-2" size={16} />
           </a>
         </motion.div>
       </div>
@@ -229,4 +294,4 @@ const Projects = () => {
   );
 };
 
-export default Projects; 
+export default Projects;
