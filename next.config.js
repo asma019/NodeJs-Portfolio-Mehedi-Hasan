@@ -5,7 +5,9 @@ const nextConfig = {
   poweredByHeader: false, // Remove X-Powered-By header for security
   compress: true, // Enable gzip compression
   compiler: {
-    removeConsole: process.env.NODE_ENV === 'production', // Remove console logs in production
+    removeConsole: process.env.NODE_ENV === 'production' ? {
+      exclude: ['error', 'warn'], // Keep error and warn logs in production
+    } : false,
   },
   images: {
     remotePatterns: [
@@ -25,13 +27,9 @@ const nextConfig = {
   // String array for allowedDevOrigins
   allowedDevOrigins: ['hema.asiabio.link'], 
   
-  // Heroku-specific optimizations
+  // Heroku-specific optimizations (only when deploying to Heroku)
+  // Vercel and other platforms ignore this
   output: process.env.HEROKU ? 'standalone' : undefined,
-  
-  // Handle dynamic port assignment (for Heroku)
-  serverRuntimeConfig: {
-    port: process.env.PORT || 3000,
-  },
 };
 
 module.exports = nextConfig; 

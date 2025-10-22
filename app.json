@@ -27,28 +27,29 @@
       "required": true
     },
     "SMTP_HOST": {
-      "description": "SMTP server hostname for sending emails (e.g., smtp.gmail.com)",
+      "description": "SMTP server hostname (Use: smtp.gmail.com for Gmail)",
+      "value": "smtp.gmail.com",
       "required": true
     },
     "SMTP_PORT": {
-      "description": "SMTP server port (typically 587 for TLS or 465 for SSL)",
+      "description": "SMTP server port (Use 587 for Gmail with TLS)",
       "value": "587",
       "required": true
     },
     "SMTP_USER": {
-      "description": "SMTP username/email address for authentication",
+      "description": "Your Gmail address (e.g., yourname@gmail.com) - Must enable 2FA and create App Password",
       "required": true
     },
     "SMTP_PASSWORD": {
-      "description": "SMTP password for authentication",
+      "description": "Gmail App Password (16 characters, no spaces) - NOT your regular password! Get it from: https://myaccount.google.com/apppasswords",
       "required": true
     },
     "MAIL_FROM": {
-      "description": "Email address to send from (usually same as SMTP_USER)",
+      "description": "Email address to send from (same as SMTP_USER)",
       "required": true
     },
     "NEXT_PUBLIC_BASE_URL": {
-      "description": "Base URL of your deployed application (will be your Heroku app URL)",
+      "description": "Base URL of your deployed application (leave empty for auto-detection)",
       "required": false
     }
   },

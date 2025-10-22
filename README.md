@@ -90,15 +90,22 @@ Create a `.env.local` file in the root directory and add the following variables
 
 ```
 # SMTP Configuration for Contact Form
-SMTP_HOST=your-smtp-server.com
+SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
-SMTP_USER=your-email@example.com
-SMTP_PASSWORD=your-password
-MAIL_FROM=your-email@example.com
+SMTP_USER=your-email@gmail.com
+SMTP_PASSWORD=your-gmail-app-password
+MAIL_FROM=your-email@gmail.com
 
 # Site Configuration
 NEXT_PUBLIC_BASE_URL=https://yourdomain.com
 ```
+
+**Important for Gmail Users:**
+- You MUST use an App Password (not your regular password)
+- See **[SMTP_SETUP_GUIDE.md](./SMTP_SETUP_GUIDE.md)** for detailed Gmail setup instructions
+- See **[EMAIL_TROUBLESHOOTING.md](./EMAIL_TROUBLESHOOTING.md)** if emails aren't being received
+
+**Emails are sent to:** `mehedims2005@gmail.com` and `hello@mehedims.com`
 
 For production, set these environment variables in your hosting platform.
 

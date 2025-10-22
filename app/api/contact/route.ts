@@ -15,22 +15,56 @@ export async function POST(request: Request) {
       );
     }
 
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { error: 'Invalid email address' },
+        { status: 400 }
+      );
+    }
+
+    // Check if SMTP credentials are configured
+    if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASSWORD) {
+      console.error('SMTP configuration missing');
+      return NextResponse.json(
+        { error: 'Email service not configured. Please contact the administrator.' },
+        { status: 500 }
+      );
+    }
+
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT),
-      secure: false, // true for 465, false for other ports
+      port: Number(process.env.SMTP_PORT) || 587,
+      secure: Number(process.env.SMTP_PORT) === 465, // true for 465, false for other ports
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASSWORD,
       },
+      // Add timeout settings for better reliability
+      connectionTimeout: 10000, // 10 seconds
+      greetingTimeout: 10000,
+      socketTimeout: 10000,
     });
 
-    // Base URL for absolute paths
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+    // Verify SMTP connection before sending
+    try {
+      await transporter.verify();
+      console.log('SMTP connection verified successfully');
+    } catch (verifyError) {
+      console.error('SMTP verification failed:', verifyError);
+      return NextResponse.json(
+        { error: 'Email service connection failed. Please try again later.' },
+        { status: 500 }
+      );
+    }
+
+    // Send to both email addresses
+    const recipients = ['mehedims2005@gmail.com', 'hello@mehedims.com'];
 
     const mailOptions = {
       from: process.env.MAIL_FROM,
-      to: process.env.MAIL_FROM,
+      to: recipients.join(', '), // Send to both addresses
       subject: `${formName} Contact: ${subject}`,
       replyTo: email,
       text: `
@@ -86,16 +120,45 @@ ${message}
       `,
     };
 
-    await transporter.sendMail(mailOptions);
+    // Send the email
+    const info = await transporter.sendMail(mailOptions);
+    
+    console.log('Email sent successfully:', {
+      messageId: info.messageId,
+      accepted: info.accepted,
+      rejected: info.rejected,
+      response: info.response,
+    });
 
     return NextResponse.json(
-      { message: 'Email sent successfully' },
+      { 
+        message: 'Email sent successfully',
+        recipients: recipients,
+        messageId: info.messageId
+      },
       { status: 200 }
     );
   } catch (error) {
     console.error('Error sending email:', error);
+    
+    // Provide more specific error messages
+    let errorMessage = 'Failed to send email. Please try again later.';
+    
+    if (error instanceof Error) {
+      // Check for common SMTP errors
+      if (error.message.includes('EAUTH')) {
+        errorMessage = 'Email authentication failed. Please check SMTP credentials.';
+      } else if (error.message.includes('ECONNECTION') || error.message.includes('ETIMEDOUT')) {
+        errorMessage = 'Could not connect to email server. Please try again.';
+      } else if (error.message.includes('Invalid login')) {
+        errorMessage = 'Invalid email credentials. Please contact administrator.';
+      }
+      
+      console.error('Detailed error:', error.message);
+    }
+    
     return NextResponse.json(
-      { error: 'Failed to send email. Please try again later.' },
+      { error: errorMessage },
       { status: 500 }
     );
   }
