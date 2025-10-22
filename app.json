@@ -1,0 +1,64 @@
+{
+  "name": "Portfolio - Mehedi Hasan",
+  "description": "A modern, performance-optimized portfolio website built with Next.js and Tailwind CSS",
+  "repository": "https://github.com/asma019/NodeJs-Portfolio-Mehedi-Hasan",
+  "logo": "https://mehedims.com/icons/icon-192x192.png",
+  "keywords": [
+    "portfolio",
+    "nextjs",
+    "react",
+    "tailwindcss",
+    "typescript",
+    "web-developer",
+    "freelance",
+    "nodejs"
+  ],
+  "website": "https://mehedims.com",
+  "success_url": "/",
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "env": {
+    "NODE_ENV": {
+      "description": "The Node environment (production for Heroku)",
+      "value": "production",
+      "required": true
+    },
+    "SMTP_HOST": {
+      "description": "SMTP server hostname for sending emails (e.g., smtp.gmail.com)",
+      "required": true
+    },
+    "SMTP_PORT": {
+      "description": "SMTP server port (typically 587 for TLS or 465 for SSL)",
+      "value": "587",
+      "required": true
+    },
+    "SMTP_USER": {
+      "description": "SMTP username/email address for authentication",
+      "required": true
+    },
+    "SMTP_PASSWORD": {
+      "description": "SMTP password for authentication",
+      "required": true
+    },
+    "MAIL_FROM": {
+      "description": "Email address to send from (usually same as SMTP_USER)",
+      "required": true
+    },
+    "NEXT_PUBLIC_BASE_URL": {
+      "description": "Base URL of your deployed application (will be your Heroku app URL)",
+      "required": false
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "stack": "heroku-22",
+  "addons": []
+}
+

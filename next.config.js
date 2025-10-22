@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* Vercel optimization settings */
+  /* Optimization settings for Vercel, Heroku, and other platforms */
   reactStrictMode: true,
   poweredByHeader: false, // Remove X-Powered-By header for security
   compress: true, // Enable gzip compression
@@ -24,6 +24,14 @@ const nextConfig = {
   },
   // String array for allowedDevOrigins
   allowedDevOrigins: ['hema.asiabio.link'], 
+  
+  // Heroku-specific optimizations
+  output: process.env.HEROKU ? 'standalone' : undefined,
+  
+  // Handle dynamic port assignment (for Heroku)
+  serverRuntimeConfig: {
+    port: process.env.PORT || 3000,
+  },
 };
 
 module.exports = nextConfig; 

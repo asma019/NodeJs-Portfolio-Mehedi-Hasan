@@ -126,10 +126,39 @@ For production, set these environment variables in your hosting platform.
 
 ## 🌐 Deployment
 
-### Vercel Deployment
+> **Not sure which platform to choose?** Check out our [Deployment Platform Comparison Guide](./DEPLOYMENT_COMPARISON.md) to find the best option for your needs!
 
-This project is optimized for [Vercel](https://vercel.com/), which offers the simplest deployment experience.
+### Heroku Deployment (One-Click) 🚀
 
+Deploy to Heroku with a single click:
+
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/asma019/NodeJs-Portfolio-Mehedi-Hasan)
+
+**Steps:**
+1. Click the button above
+2. Choose an app name
+3. Fill in the required environment variables (SMTP settings)
+4. Click "Deploy app"
+5. Done! 🎉
+
+**Features:**
+- ✅ Automatic SSL certificate
+- ✅ Free tier available
+- ✅ Easy environment variable management
+- ✅ Built-in monitoring and logs
+- ✅ One-click updates from GitHub
+
+**Quick Start:** See [HEROKU_QUICK_START.md](./HEROKU_QUICK_START.md) for a 5-minute deployment guide.
+
+**Detailed Guide:** See [HEROKU_DEPLOYMENT.md](./HEROKU_DEPLOYMENT.md) for comprehensive instructions.
+
+### Vercel Deployment ⚡
+
+This project is also optimized for [Vercel](https://vercel.com/), which offers the simplest deployment experience for Next.js.
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/asma019/NodeJs-Portfolio-Mehedi-Hasan)
+
+**Steps:**
 1. Push your code to a GitHub repository
 2. Import the project in Vercel
 3. Configure the following environment variables:
@@ -140,6 +169,13 @@ This project is optimized for [Vercel](https://vercel.com/), which offers the si
    - `MAIL_FROM`
    - `NEXT_PUBLIC_BASE_URL`
 4. Deploy
+
+**Features:**
+- ✅ Global CDN for ultra-fast performance
+- ✅ Automatic preview deployments
+- ✅ Zero-config for Next.js
+- ✅ No cold starts
+- ✅ Generous free tier
 
 The project includes `vercel.json` with optimized cache settings and build configurations.
 
@@ -179,6 +215,46 @@ To deploy on your own server:
      }
    }
    ```
+
+### Heroku Manual Deployment
+
+**Using Heroku CLI:**
+
+1. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
+2. Login to Heroku:
+   ```bash
+   heroku login
+   ```
+3. Create a new app:
+   ```bash
+   heroku create your-portfolio-name
+   ```
+4. Set environment variables:
+   ```bash
+   heroku config:set SMTP_HOST=smtp.gmail.com
+   heroku config:set SMTP_PORT=587
+   heroku config:set SMTP_USER=your-email@gmail.com
+   heroku config:set SMTP_PASSWORD=your-password
+   heroku config:set MAIL_FROM=your-email@gmail.com
+   ```
+5. Deploy:
+   ```bash
+   git push heroku main
+   ```
+6. Open your app:
+   ```bash
+   heroku open
+   ```
+
+**Using Docker on Heroku:**
+```bash
+heroku container:login
+heroku create your-portfolio-name
+heroku container:push web
+heroku container:release web
+```
+
+For more details, see [HEROKU_DEPLOYMENT.md](./HEROKU_DEPLOYMENT.md)
 
 ### PM2 Deployment
 
@@ -285,8 +361,15 @@ portfolio/
 ├── scripts/              # Utility scripts
 │   └── generate-icons.js # Icon generation script
 ├── .env.local            # Local environment variables
+├── app.json              # Heroku app configuration
+├── Procfile              # Heroku process file
+├── heroku.yml            # Heroku Docker configuration
+├── .slugignore           # Heroku slug ignore file
 ├── next.config.js        # Next.js configuration
 ├── vercel.json           # Vercel-specific configuration
+├── docker-compose.yml    # Docker Compose configuration
+├── Dockerfile            # Docker configuration
+├── ecosystem.config.js   # PM2 configuration
 ├── next-sitemap.config.js # Sitemap generator config
 ├── tailwind.config.js    # Tailwind CSS configuration
 └── package.json          # Project dependencies and scripts
@@ -336,6 +419,10 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 Check out the [latest release](https://github.com/asma019/NodeJs-Portfolio-Mehedi-Hasan/releases/tag/v) for the most up-to-date version.
 
 ### Recent Updates
+- ✨ Added Heroku one-click deployment support
+- ✨ Created comprehensive Heroku deployment guide
+- ✨ Added deployment platform comparison guide
+- ✨ Automated Heroku setup script
 - Fixed CSS optimization with the addition of the Critters package
 - Updated `next.config.js` for better performance and compatibility
 - Added complete set of PWA icons for all required sizes
