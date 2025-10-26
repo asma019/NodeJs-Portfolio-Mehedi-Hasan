@@ -9,21 +9,28 @@ Failed: error occurred while installing tools or dependencies
 
 ---
 
-## ✅ Solution (3 Steps)
+## ✅ Solution (4 Steps)
 
-### Step 1: Commit New Files
+### Step 1: Fix runtime.txt
+
+The `runtime.txt` file had `node-18.x` which Cloudflare interpreted as Python.
+
+**Fixed:** Changed to `nodejs-18.17.0`
+
+### Step 2: Commit All Files
 ```bash
 git add .
 git commit -m "Fix Cloudflare build configuration"
 git push
 ```
 
-**Files added:**
+**Files fixed:**
 - `.node-version` → Tells Cloudflare to use Node 18.17.0
-- `.nvmrc` → Alternative Node version file  
-- Updated `package.json` → Fixed engines specification
+- `.nvmrc` → Alternative Node version file
+- `runtime.txt` → Changed from `node-18.x` to `nodejs-18.17.0`
+- `package.json` → Fixed engines specification
 
-### Step 2: Configure Cloudflare Pages
+### Step 3: Configure Cloudflare Pages
 
 **Go to your Cloudflare Pages project settings:**
 
@@ -48,7 +55,7 @@ git push
    MAIL_FROM = your-email@gmail.com
    ```
 
-### Step 3: Retry Deployment
+### Step 4: Retry Deployment
 
 **Option A:** Let it auto-deploy from GitHub push
 
