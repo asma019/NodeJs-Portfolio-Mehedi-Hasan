@@ -4,58 +4,20 @@ This portfolio can be deployed on multiple platforms. Here's a comparison to hel
 
 ## Platform Comparison Table
 
-| Feature | Cloudflare | Heroku | Vercel | Self-Hosted (VPS) |
-|---------|-----------|--------|--------|-------------------|
-| **One-Click Deploy** | ✅ Yes | ✅ Yes | ✅ Yes | ❌ No |
-| **Free Tier** | ✅ Yes (best) | ✅ Yes (limited) | ✅ Yes (generous) | ❌ No |
-| **Auto Scaling** | ✅ Yes | ✅ Yes | ✅ Yes | ❌ Manual |
-| **SSL/HTTPS** | ✅ Free | ✅ Free | ✅ Free | 💰 Setup needed |
+| Feature | Heroku | Vercel | Self-Hosted (VPS) | Docker |
+|---------|--------|--------|-------------------|--------|
+| **One-Click Deploy** | ✅ Yes | ✅ Yes | ❌ No | ❌ No |
+| **Free Tier** | ✅ Yes (with limitations) | ✅ Yes (generous) | ❌ No | Depends on host |
+| **Auto Scaling** | ✅ Yes | ✅ Yes | ❌ Manual | ❌ Manual |
+| **SSL/HTTPS** | ✅ Free | ✅ Free | 💰 Setup needed | 💰 Setup needed |
 | **Custom Domain** | ✅ Free | ✅ Free | ✅ Free | ✅ Free |
-| **Build Time** | ~1-2 min | ~2-3 min | ~1-2 min | Varies |
-| **Ease of Setup** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ |
-| **Cost (Basic)** | $0-5/month | $7/month | $20/month | $5-10/month |
-| **Cold Start** | No | Yes (free) | No | No |
-| **Global CDN** | ✅ 275+ locations | ❌ Regional | ✅ 70+ locations | ❌ Single |
-| **Environment Variables** | ✅ Easy | ✅ Easy | ✅ Easy | ⚠️ Manual |
-| **Logs & Monitoring** | ✅ Built-in | ✅ Built-in | ✅ Built-in | ⚠️ Setup needed |
-| **Git Integration** | ✅ Yes | ✅ Yes | ✅ Yes | ⚠️ Manual |
-| **DDoS Protection** | ✅ Built-in | ❌ No | ⚠️ Limited | ❌ No |
-
----
-
-## ⚡ Cloudflare Workers/Pages (NEW!)
-
-### Pros:
-- ✅ **Best free tier** - 100,000 requests/day
-- ✅ **Global CDN** - 275+ locations worldwide
-- ✅ **Zero cold starts** - Instant response times
-- ✅ **Automatic DDoS protection** 
-- ✅ **Free SSL** and automatic HTTPS
-- ✅ **Excellent performance** - Sub-50ms TTFB
-- ✅ **GitHub integration** - Auto-deploy on push
-- ✅ **Preview deployments** - Test before going live
-- ✅ **Unlimited bandwidth** on free tier
-- ✅ **Built-in analytics**
-
-### Cons:
-- ⚠️ Nodemailer requires modification (use SendGrid/Resend instead)
-- ⚠️ Limited Node.js API support in Workers
-- ⚠️ Learning curve for Workers (Pages is easier)
-- ⚠️ Some Next.js features limited in Workers
-
-### Best For:
-- Static sites and portfolios
-- High-traffic applications
-- Global audience
-- Performance-critical apps
-- Anyone wanting best free tier
-
-### Cost:
-- **Free**: 100,000 requests/day, unlimited bandwidth
-- **Paid**: $5/month, 10M requests/month
-- **No hidden costs** for bandwidth or builds
-
-**Recommendation:** Use Cloudflare Pages for easiest deployment, or Workers for maximum performance.
+| **Build Time** | ~2-3 min | ~1-2 min | Varies | ~3-5 min |
+| **Ease of Setup** | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ |
+| **Cost (Basic)** | $7/month | $20/month | $5-10/month | Varies |
+| **Cold Start** | Yes (free tier) | No | No | No |
+| **Environment Variables** | ✅ Easy | ✅ Easy | ⚠️ Manual | ⚠️ Manual |
+| **Logs & Monitoring** | ✅ Built-in | ✅ Built-in | ⚠️ Setup needed | ⚠️ Setup needed |
+| **Git Integration** | ✅ Yes | ✅ Yes | ⚠️ Manual | ⚠️ Manual |
 
 ---
 
@@ -184,30 +146,22 @@ This portfolio can be deployed on multiple platforms. Here's a comparison to hel
 ## 🎯 Recommendations
 
 ### For Beginners:
-**Choose Cloudflare Pages or Heroku**
-- Cloudflare Pages: Best free tier, fastest
-- Heroku: Easiest setup, one-click deploy
-- Both easy to use and configure
-
-### For Best Performance:
-**Choose Cloudflare Pages/Workers**
-- Global CDN with 275+ locations
-- Zero cold starts
-- Sub-50ms response times
-- Best free tier
+**Choose Heroku or Vercel**
+- Both offer one-click deployment
+- Easy to use and configure
+- Free tiers to get started
 
 ### For Next.js Specific:
-**Choose Vercel or Cloudflare Pages**
-- Vercel: Built by Next.js creators
-- Cloudflare: Excellent Next.js support
-- Both offer optimal integration
+**Choose Vercel**
+- Built by the creators of Next.js
+- Best performance and features
+- Optimal integration
 
 ### For Production Apps:
 **Choose based on scale:**
-- **Small-Medium**: Cloudflare Pages or Vercel
-- **Medium-Large**: Cloudflare Workers or Vercel
-- **Enterprise**: Cloudflare Enterprise or Vercel Enterprise
-- **Custom needs**: Self-hosted VPS or AWS
+- **Small-Medium**: Vercel or Heroku
+- **Medium-Large**: Self-hosted VPS or AWS
+- **Enterprise**: Vercel Enterprise or AWS/GCP
 
 ### For Learning:
 **Choose Self-Hosted VPS**
@@ -215,18 +169,11 @@ This portfolio can be deployed on multiple platforms. Here's a comparison to hel
 - Understand DevOps concepts
 - Full control over infrastructure
 
-### For Cost Efficiency:
-**Choose Cloudflare**
-- Best free tier (100K requests/day)
-- No bandwidth charges
-- Multiple projects on free tier
-- $5/month for 10M requests
-
-### For Portfolios (Like This One):
-**Top 3 Choices:**
-1. **Cloudflare Pages** - Best performance, free
-2. **Vercel** - Zero config, excellent DX
-3. **Heroku** - Easiest one-click setup
+### For Cost Efficiency (Multiple Projects):
+**Choose Self-Hosted VPS**
+- Run multiple apps on one server
+- Lower cost per project
+- More cost-effective at scale
 
 ---
 
@@ -242,24 +189,6 @@ Good news! This portfolio is designed to work on all platforms:
 ---
 
 ## Quick Start Commands
-
-### Cloudflare Pages:
-```bash
-# Via Dashboard (Easiest)
-# 1. Go to dash.cloudflare.com
-# 2. Workers & Pages → Create → Pages
-# 3. Connect GitHub → Deploy
-
-# Via Wrangler CLI
-wrangler pages deploy .next
-```
-
-### Cloudflare Workers:
-```bash
-npm install -g wrangler
-wrangler login
-wrangler deploy
-```
 
 ### Heroku:
 ```bash
@@ -278,11 +207,15 @@ npm run build
 pm2 start ecosystem.config.js
 ```
 
+### Docker:
+```bash
+docker-compose up -d
+```
+
 ---
 
 ## Support & Documentation
 
-- **Cloudflare**: [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMENT.md)
 - **Heroku**: [HEROKU_DEPLOYMENT.md](./HEROKU_DEPLOYMENT.md)
 - **Vercel**: See main [README.md](./README.md)
 - **Self-Hosted**: See [README.md](./README.md) PM2 section
@@ -290,19 +223,5 @@ pm2 start ecosystem.config.js
 
 ---
 
-## 🏆 Winner for Most Use Cases
-
-**Cloudflare Pages** offers the best combination of:
-- ✅ Performance (275+ locations)
-- ✅ Free tier (100K requests/day)
-- ✅ Zero cold starts
-- ✅ Easy setup
-- ✅ Unlimited bandwidth
-- ✅ Built-in DDoS protection
-
-**For this portfolio specifically:** Deploy to Cloudflare Pages via GitHub for the best experience!
-
----
-
-**Still can't decide?** Start with Cloudflare Pages or Vercel's free tier, then scale or migrate as needed! 🚀
+**Still can't decide?** Start with Heroku or Vercel's free tier, then scale or migrate as needed! 🚀
 

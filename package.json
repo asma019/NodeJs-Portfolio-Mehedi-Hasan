@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": ">=18.17.0",
-    "npm": ">=9.0.0"
+    "node": "18.x",
+    "npm": "9.x"
   },
   "scripts": {
     "dev": "next dev --turbopack",
@@ -17,10 +17,7 @@
     "vercel-build": "npm run build",
     "heroku-postbuild": "npm run build",
     "check-env": "node scripts/check-env.js",
-    "heroku-setup": "bash scripts/heroku-setup.sh",
-    "cloudflare:deploy": "wrangler deploy",
-    "cloudflare:dev": "wrangler dev",
-    "cloudflare:tail": "wrangler tail"
+    "heroku-setup": "bash scripts/heroku-setup.sh"
   },
   "dependencies": {
     "critters": "^0.0.20",

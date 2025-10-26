@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* Optimization settings for Vercel, Heroku, Cloudflare, and other platforms */
+  /* Optimization settings for Vercel, Heroku, and other platforms */
   reactStrictMode: true,
   poweredByHeader: false, // Remove X-Powered-By header for security
   compress: true, // Enable gzip compression
@@ -19,8 +19,6 @@ const nextConfig = {
     ],
     formats: ['image/avif', 'image/webp'], // Modern image formats for better performance
     minimumCacheTTL: 60, // Add cache control for images (60 seconds)
-    // Cloudflare Images optimization
-    unoptimized: process.env.CLOUDFLARE ? true : false,
   },
   experimental: {
     optimizeCss: true, // Simplified CSS optimization setting
@@ -29,26 +27,9 @@ const nextConfig = {
   // String array for allowedDevOrigins
   allowedDevOrigins: ['hema.asiabio.link'], 
   
-  // Platform-specific optimizations
-  // Heroku: Use standalone output
-  // Cloudflare: Compatible with Workers
-  // Vercel: Default Next.js behavior
+  // Heroku-specific optimizations (only when deploying to Heroku)
+  // Vercel and other platforms ignore this
   output: process.env.HEROKU ? 'standalone' : undefined,
-  
-  // Cloudflare Workers compatibility
-  // Workers don't support all Node.js APIs, but our app is compatible
-  webpack: (config, { isServer }) => {
-    // Ensure compatibility with Cloudflare Workers
-    if (process.env.CLOUDFLARE) {
-      config.resolve.fallback = {
-        ...config.resolve.fallback,
-        fs: false,
-        net: false,
-        tls: false,
-      };
-    }
-    return config;
-  },
 };
 
 module.exports = nextConfig; 

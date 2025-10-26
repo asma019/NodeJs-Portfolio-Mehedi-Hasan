@@ -135,54 +135,6 @@ For production, set these environment variables in your hosting platform.
 
 > **Not sure which platform to choose?** Check out our [Deployment Platform Comparison Guide](./DEPLOYMENT_COMPARISON.md) to find the best option for your needs!
 
-### Cloudflare Workers/Pages ⚡ (NEW!)
-
-Deploy to Cloudflare's global edge network for ultra-fast performance:
-
-**Cloudflare Pages (Recommended for portfolios):**
-1. **Push your code to GitHub** (includes `.node-version` file)
-2. **Go to** https://dash.cloudflare.com/
-3. **Select** "Workers & Pages" → "Create application" → "Pages"
-4. **Connect your GitHub repository**
-5. **Configure build settings:**
-   - Framework preset: `Next.js`
-   - Build command: `npm run build`
-   - Build output directory: `.next`
-   - Root directory: (leave blank)
-6. **Add environment variables:**
-   ```
-   NODE_VERSION=18.17.0
-   SMTP_HOST=smtp.gmail.com
-   SMTP_PORT=587
-   SMTP_USER=your-email@gmail.com
-   SMTP_PASSWORD=your-app-password
-   MAIL_FROM=your-email@gmail.com
-   ```
-7. **Save and Deploy!**
-
-**Troubleshooting:** If build fails, see [CLOUDFLARE_BUILD_FIX.md](./CLOUDFLARE_BUILD_FIX.md)
-
-**Cloudflare Workers:**
-```bash
-# Install Wrangler CLI
-npm install -g wrangler
-
-# Login to Cloudflare
-wrangler login
-
-# Deploy
-npm run cloudflare:deploy
-```
-
-**Features:**
-- ✅ Global CDN (275+ cities)
-- ✅ Zero cold starts
-- ✅ Free SSL/TLS
-- ✅ Automatic scaling
-- ✅ 100,000 free requests/day
-
-**Detailed Guide:** See [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMENT.md)
-
 ### Heroku Deployment (One-Click) 🚀
 
 Deploy to Heroku with a single click:
