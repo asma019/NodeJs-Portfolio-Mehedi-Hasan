@@ -35,7 +35,16 @@ This will open your browser to authenticate with Cloudflare.
 
 ## ⚙️ Configuration
 
-### Step 1: Update wrangler.toml
+### Important: Node.js Version
+
+This project uses Node.js 18.17.0. The repository includes:
+- `.node-version` - Tells Cloudflare which Node version to use
+- `.nvmrc` - Alternative version specification
+- `package.json` engines - Version requirements
+
+**These files ensure your build succeeds on Cloudflare!**
+
+### Step 1: Update wrangler.toml (For Workers only)
 
 Edit `wrangler.toml` and add your Cloudflare account ID:
 
@@ -104,25 +113,41 @@ wrangler tail  # Live logs
 
 ## 🌐 Custom Domain (Optional)
 
+### Cloudflare Pages Build Settings:
+
+**In Cloudflare Dashboard:**
+```
+Framework preset: Next.js
+Build command: npm run build
+Build output directory: .next
+Root directory: (leave blank)
+```
+
+**Environment Variables:**
+```
+NODE_VERSION=18.17.0
+NPM_VERSION=9.8.1
+NEXT_TELEMETRY_DISABLED=1
+```
+
+**Plus your SMTP variables** (see above)
+
 ### Add Custom Domain:
 
 1. **Via Cloudflare Dashboard:**
    - Go to Workers & Pages
-   - Select your worker
-   - Go to "Settings" → "Triggers"
-   - Add custom domain
+   - Select your project
+   - Go to "Custom domains"
+   - Click "Set up a custom domain"
+   - Enter your domain
+   - Follow DNS instructions
 
-2. **Via wrangler.toml:**
-   ```toml
-   routes = [
-     { pattern = "portfolio.yourdomain.com/*", custom_domain = true }
-   ]
-   ```
+2. **DNS Configuration:**
+   - Cloudflare will provide CNAME record
+   - Add to your domain's DNS
+   - Wait for propagation (5-10 minutes)
 
-3. **Deploy changes:**
-   ```bash
-   wrangler deploy
-   ```
+3. **SSL is automatic** - Cloudflare handles this!
 
 ---
 

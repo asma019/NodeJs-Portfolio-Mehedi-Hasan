@@ -140,13 +140,27 @@ For production, set these environment variables in your hosting platform.
 Deploy to Cloudflare's global edge network for ultra-fast performance:
 
 **Cloudflare Pages (Recommended for portfolios):**
-1. Connect your GitHub repository at https://dash.cloudflare.com/
-2. Select "Workers & Pages" → "Create application" → "Pages"
-3. Configure build settings:
+1. **Push your code to GitHub** (includes `.node-version` file)
+2. **Go to** https://dash.cloudflare.com/
+3. **Select** "Workers & Pages" → "Create application" → "Pages"
+4. **Connect your GitHub repository**
+5. **Configure build settings:**
+   - Framework preset: `Next.js`
    - Build command: `npm run build`
-   - Build output: `.next`
-4. Add environment variables (SMTP credentials)
-5. Deploy!
+   - Build output directory: `.next`
+   - Root directory: (leave blank)
+6. **Add environment variables:**
+   ```
+   NODE_VERSION=18.17.0
+   SMTP_HOST=smtp.gmail.com
+   SMTP_PORT=587
+   SMTP_USER=your-email@gmail.com
+   SMTP_PASSWORD=your-app-password
+   MAIL_FROM=your-email@gmail.com
+   ```
+7. **Save and Deploy!**
+
+**Troubleshooting:** If build fails, see [CLOUDFLARE_BUILD_FIX.md](./CLOUDFLARE_BUILD_FIX.md)
 
 **Cloudflare Workers:**
 ```bash
