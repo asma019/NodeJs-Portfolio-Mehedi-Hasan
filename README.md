@@ -135,6 +135,40 @@ For production, set these environment variables in your hosting platform.
 
 > **Not sure which platform to choose?** Check out our [Deployment Platform Comparison Guide](./DEPLOYMENT_COMPARISON.md) to find the best option for your needs!
 
+### Cloudflare Workers/Pages ⚡ (NEW!)
+
+Deploy to Cloudflare's global edge network for ultra-fast performance:
+
+**Cloudflare Pages (Recommended for portfolios):**
+1. Connect your GitHub repository at https://dash.cloudflare.com/
+2. Select "Workers & Pages" → "Create application" → "Pages"
+3. Configure build settings:
+   - Build command: `npm run build`
+   - Build output: `.next`
+4. Add environment variables (SMTP credentials)
+5. Deploy!
+
+**Cloudflare Workers:**
+```bash
+# Install Wrangler CLI
+npm install -g wrangler
+
+# Login to Cloudflare
+wrangler login
+
+# Deploy
+npm run cloudflare:deploy
+```
+
+**Features:**
+- ✅ Global CDN (275+ cities)
+- ✅ Zero cold starts
+- ✅ Free SSL/TLS
+- ✅ Automatic scaling
+- ✅ 100,000 free requests/day
+
+**Detailed Guide:** See [CLOUDFLARE_DEPLOYMENT.md](./CLOUDFLARE_DEPLOYMENT.md)
+
 ### Heroku Deployment (One-Click) 🚀
 
 Deploy to Heroku with a single click:

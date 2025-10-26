@@ -17,7 +17,10 @@
     "vercel-build": "npm run build",
     "heroku-postbuild": "npm run build",
     "check-env": "node scripts/check-env.js",
-    "heroku-setup": "bash scripts/heroku-setup.sh"
+    "heroku-setup": "bash scripts/heroku-setup.sh",
+    "cloudflare:deploy": "wrangler deploy",
+    "cloudflare:dev": "wrangler dev",
+    "cloudflare:tail": "wrangler tail"
   },
   "dependencies": {
     "critters": "^0.0.20",

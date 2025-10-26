@@ -1,0 +1,41 @@
+# Cloudflare Workers configuration for Next.js
+name = "portfolio-mehedi-hasan"
+main = "./.next/worker.js"
+compatibility_date = "2024-01-01"
+
+# Account details (update with your Cloudflare account ID)
+# Get your account ID from: https://dash.cloudflare.com/
+# account_id = "your-cloudflare-account-id"
+
+# Environment variables for Cloudflare Workers
+[vars]
+NODE_ENV = "production"
+
+# Secret environment variables (set using wrangler secret)
+# Run: wrangler secret put SMTP_HOST
+# Run: wrangler secret put SMTP_PORT
+# Run: wrangler secret put SMTP_USER
+# Run: wrangler secret put SMTP_PASSWORD
+# Run: wrangler secret put MAIL_FROM
+
+# Build configuration
+[build]
+command = "npm run build"
+
+# Compatibility flags for Next.js
+compatibility_flags = ["nodejs_compat"]
+
+# Routes configuration (optional)
+# routes = [
+#   { pattern = "/*", zone_name = "yourdomain.com" }
+# ]
+
+# Custom domains (optional)
+# routes = [
+#   { pattern = "portfolio.yourdomain.com/*", custom_domain = true }
+# ]
+
+# Observability
+[observability]
+enabled = true
+
