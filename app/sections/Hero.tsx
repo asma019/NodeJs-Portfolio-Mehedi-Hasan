@@ -65,9 +65,9 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="text-lg text-gray-600 dark:text-gray-400 max-w-lg mb-8 leading-relaxed"
             >
-              I'm a professional freelance web developer with 3+ years of experience creating responsive, 
+              I&apos;m a professional freelance web developer with 3+ years of experience creating responsive,
               user-friendly websites and web applications. I specialize in both frontend and backend development, 
-              turning clients' ideas into polished digital solutions.
+              turning clients&apos; ideas into polished digital solutions.
             </motion.p>
             
             <motion.div

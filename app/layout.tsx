@@ -69,6 +69,21 @@ export default function RootLayout({
         <link rel="canonical" href="https://mehedims.com" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+
+        {/* Preconnect to domains for faster resource loading */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
+        {/* Preload critical assets */}
+        <link rel="preload" href="/images/socialshare.png" as="image" type="image/png" />
+
+        {/* Add security headers */}
+        <meta httpEquiv="X-DNS-Prefetch-Control" content="on" />
+        <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
+
+        {/* Add performance hints to browser */}
+        <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)" />
       </head>
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>

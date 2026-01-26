@@ -90,11 +90,11 @@ const Contact = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <span className="inline-block px-3 py-1 text-sm font-medium text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/40 rounded-full mb-4">Let's Connect</span>
+          <span className="inline-block px-3 py-1 text-sm font-medium text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/40 rounded-full mb-4">Let&apos;s Connect</span>
           <h2 className="heading-lg text-gray-900 dark:text-white mb-4">Get In Touch</h2>
           <div className="h-1 w-20 bg-blue-500 mx-auto"></div>
           <p className="paragraph text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mt-4">
-            I'm always open to new opportunities and projects. Feel free to reach out if you want to collaborate or have any questions.
+            I&apos;m always open to new opportunities and projects. Feel free to reach out if you want to collaborate or have any questions.
           </p>
         </motion.div>
 
@@ -234,7 +234,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <p className="font-medium">Your message has been sent successfully!</p>
-                      <p className="text-sm text-green-600 dark:text-green-400 mt-1">I'll get back to you soon.</p>
+                      <p className="text-sm text-green-600 dark:text-green-400 mt-1">I&apos;ll get back to you soon.</p>
                     </div>
                   </motion.div>
                 )}
