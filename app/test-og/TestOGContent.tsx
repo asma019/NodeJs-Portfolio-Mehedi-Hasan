@@ -17,7 +17,7 @@ export default function TestOGContent() {
         <div className="space-y-6">
           <div>
             <p className="text-gray-700 dark:text-gray-300 mb-4">
-              This page lets you test how your site's social sharing image appears. This is the image that will be shown when sharing your site on platforms like Facebook, Twitter, LinkedIn, etc.
+              This page lets you test how your site&apos;s social sharing image appears. This is the image that will be shown when sharing your site on platforms like Facebook, Twitter, LinkedIn, etc.
             </p>
             
             <div className="flex space-x-3 mb-6">

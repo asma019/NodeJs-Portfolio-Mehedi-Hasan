@@ -5,13 +5,19 @@
  * Validates that all required environment variables are set
  */
 
-const chalk = require('chalk') || { 
-  green: (text) => `✅ ${text}`,
-  red: (text) => `❌ ${text}`,
-  yellow: (text) => `⚠️  ${text}`,
-  blue: (text) => `ℹ️  ${text}`,
-  bold: (text) => text
-};
+let chalk;
+
+try {
+  chalk = require('chalk');
+} catch (e) {
+  chalk = {
+    green: (text) => `✅ ${text}`,
+    red: (text) => `❌ ${text}`,
+    yellow: (text) => `⚠️  ${text}`,
+    blue: (text) => `ℹ️  ${text}`,
+    bold: (text) => text
+  };
+}
 
 const requiredVars = [
   'SMTP_HOST',

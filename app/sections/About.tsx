@@ -98,7 +98,7 @@ const About = () => {
               >
                 I am a freelance web developer passionate about creating high-quality, functional websites 
                 and web applications for clients worldwide. With over 3 years of experience in web development 
-                and digital solutions, I've built a strong foundation in both frontend and backend technologies.
+                and digital solutions, I&apos;ve built a strong foundation in both frontend and backend technologies.
               </motion.p>
               
               <motion.p 
@@ -109,7 +109,7 @@ const About = () => {
                 className="paragraph text-gray-600 dark:text-gray-400 mb-6 leading-relaxed relative z-10"
               >
                 Currently studying towards a Diploma in Engineering at Mangrove Institute of Science and Technology (2023-2027), 
-                I'm constantly improving my technical skills while working professionally as a freelancer.
+                I&apos;m constantly improving my technical skills while working professionally as a freelancer.
               </motion.p>
               
               <motion.p 
@@ -121,7 +121,7 @@ const About = () => {
               >
                 I specialize in building responsive websites, e-commerce platforms, and custom web applications 
                 for clients on Fiverr and other platforms, turning complex requirements into elegant, user-friendly solutions.
-                I'm also an expert in WordPress speed optimization and VPS control panel setup including cPanel, Webuzo, CyberPanel, and HostiaCP.
+                I&apos;m also an expert in WordPress speed optimization and VPS control panel setup including cPanel, Webuzo, CyberPanel, and HostiaCP.
               </motion.p>
             </div>
             
