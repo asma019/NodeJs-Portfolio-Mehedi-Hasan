@@ -14,6 +14,7 @@
     "analyze": "ANALYZE=true next build",
     "generate-icons": "node scripts/generate-icons.js",
     "postbuild": "next-sitemap",
+    "test": "node --experimental-strip-types --test app/api/contact/route.test.ts",
     "vercel-build": "npm run build",
     "heroku-postbuild": "npm run build",
     "check-env": "node scripts/check-env.js",
