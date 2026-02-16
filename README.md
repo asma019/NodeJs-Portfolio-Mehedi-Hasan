@@ -95,6 +95,7 @@ SMTP_PORT=587
 SMTP_USER=your-email@gmail.com
 SMTP_PASSWORD=your-gmail-app-password
 MAIL_FROM=your-email@gmail.com
+CONTACT_RECIPIENTS=your-email@gmail.com,another-email@example.com
 
 # Site Configuration
 NEXT_PUBLIC_BASE_URL=https://yourdomain.com
@@ -105,7 +106,7 @@ NEXT_PUBLIC_BASE_URL=https://yourdomain.com
 - See **[SMTP_SETUP_GUIDE.md](./SMTP_SETUP_GUIDE.md)** for detailed Gmail setup instructions
 - See **[EMAIL_TROUBLESHOOTING.md](./EMAIL_TROUBLESHOOTING.md)** if emails aren't being received
 
-**Emails are sent to:** `mehedims2005@gmail.com` and `hello@mehedims.com`
+**Emails are sent to:** The addresses specified in the `CONTACT_RECIPIENTS` environment variable (comma-separated).
 
 For production, set these environment variables in your hosting platform.
 

@@ -59,12 +59,15 @@ export async function POST(request: Request) {
       );
     }
 
-    // Send to both email addresses
-    const recipients = ['mehedims2005@gmail.com', 'hello@mehedims.com'];
+    // Use environment variable for recipients or fallback to MAIL_FROM
+    const contactRecipients = process.env.CONTACT_RECIPIENTS;
+    const recipients = contactRecipients
+      ? contactRecipients.split(',').map(email => email.trim())
+      : [process.env.MAIL_FROM || ''];
 
     const mailOptions = {
       from: process.env.MAIL_FROM,
-      to: recipients.join(', '), // Send to both addresses
+      to: recipients.join(', '), // Send to all configured addresses
       subject: `${formName} Contact: ${subject}`,
       replyTo: email,
       text: `

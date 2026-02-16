@@ -6,7 +6,7 @@
 
 **Problem:**
 - Contact form showed "Email sent successfully"
-- No emails received at mehedims2005@gmail.com or hello@mehedims.com
+- No emails received at the intended recipient addresses
 
 **Root Cause:**
 - Emails were only sent to `MAIL_FROM` address (sender)
@@ -18,13 +18,17 @@
 to: process.env.MAIL_FROM
 
 // After (CORRECT):
-const recipients = ['mehedims2005@gmail.com', 'hello@mehedims.com'];
+const contactRecipients = process.env.CONTACT_RECIPIENTS;
+const recipients = contactRecipients
+  ? contactRecipients.split(',').map(email => email.trim())
+  : [process.env.MAIL_FROM || ''];
 to: recipients.join(', ')
 ```
 
 **Result:**
-- ✅ Emails now sent to BOTH addresses
-- ✅ Hardcoded recipient addresses (no env var needed)
+- ✅ Emails now sent to all configured recipient addresses
+- ✅ Removed hardcoded personal emails for better security
+- ✅ Customizable recipients via environment variable
 - ✅ Better logging for debugging
 
 ---
@@ -78,15 +82,18 @@ to: recipients.join(', ')
 **Changes:**
 - Added email format validation
 - Added SMTP connection verification
-- Fixed recipient addresses to send to both emails
+- Replaced hardcoded recipients with `CONTACT_RECIPIENTS` environment variable
 - Added detailed error handling
 - Added timeout settings
 - Improved logging
 
 **Key Changes:**
 ```javascript
-// Recipients hardcoded (guaranteed correct)
-const recipients = ['mehedims2005@gmail.com', 'hello@mehedims.com'];
+// Use environment variable for recipients or fallback to MAIL_FROM
+const contactRecipients = process.env.CONTACT_RECIPIENTS;
+const recipients = contactRecipients
+  ? contactRecipients.split(',').map(email => email.trim())
+  : [process.env.MAIL_FROM || ''];
 
 // Verify SMTP before sending
 await transporter.verify();
@@ -157,9 +164,7 @@ Comprehensive troubleshooting guide:
    ↓
 4. API verifies SMTP connection
    ↓
-5. API sends email to BOTH:
-   - mehedims2005@gmail.com
-   - hello@mehedims.com
+5. API sends email to all configured recipients in `CONTACT_RECIPIENTS`
    ↓
 6. API returns success/error
    ↓
@@ -167,9 +172,9 @@ Comprehensive troubleshooting guide:
 ```
 
 ### Email Recipients:
-- **Primary:** mehedims2005@gmail.com
-- **Secondary:** hello@mehedims.com
-- **Both receive:** Every contact form submission
+- **Configurable:** via `CONTACT_RECIPIENTS` environment variable
+- **Fallback:** to `MAIL_FROM` if not specified
+- **Multiple:** supports comma-separated list
 
 ---
 
@@ -188,6 +193,7 @@ SMTP_PORT=587
 SMTP_USER=your-gmail@gmail.com
 SMTP_PASSWORD=*** (16 chars)
 MAIL_FROM=your-gmail@gmail.com
+CONTACT_RECIPIENTS=your@email.com
 ```
 
 ### 2. Test Email Send:
@@ -199,15 +205,13 @@ MAIL_FROM=your-gmail@gmail.com
    heroku logs --tail
    ```
 5. Look for: "Email sent successfully"
-6. Check BOTH inboxes:
-   - mehedims2005@gmail.com
-   - hello@mehedims.com
+6. Check all recipient inboxes configured in `CONTACT_RECIPIENTS`.
 
 ### 3. Verify No Errors:
 - ✅ No console errors
 - ✅ No SMTP errors in logs
 - ✅ Success message shown
-- ✅ Both emails received
+- ✅ All configured recipients receive the email
 
 ---
 
@@ -288,15 +292,14 @@ After deployment:
    SMTP connection verified successfully
    Email sent successfully: {
      messageId: '<unique-id>',
-     accepted: ['mehedims2005@gmail.com', 'hello@mehedims.com'],
+     accepted: ['your@email.com', 'another@email.com'],
      rejected: []
    }
    ```
 
 3. **Email inboxes:**
-   - ✅ mehedims2005@gmail.com receives email
-   - ✅ hello@mehedims.com receives email
-   - ✅ Both show sender's message
+   - ✅ All configured recipient addresses receive the email
+   - ✅ Emails show sender's message
    - ✅ Reply-to set to sender's email
 
 ---

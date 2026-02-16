@@ -2,7 +2,7 @@
 
 ## Issue: Contact Form Not Sending Emails
 
-If your contact form says "Email sent successfully" but you're not receiving emails at `mehedims2005@gmail.com` or `hello@mehedims.com`, follow this guide.
+If your contact form says "Email sent successfully" but you're not receiving emails at your configured recipient addresses, follow this guide.
 
 ---
 
@@ -10,9 +10,9 @@ If your contact form says "Email sent successfully" but you're not receiving ema
 
 Before diving into troubleshooting:
 
-- [ ] SMTP credentials are correctly set in environment variables
+- [ ] SMTP credentials and recipient addresses are correctly set in environment variables
 - [ ] Using Gmail App Password (not regular password)
-- [ ] Both email addresses exist and can receive mail
+- [ ] Recipient email addresses exist and can receive mail
 - [ ] Check spam/junk folder
 - [ ] SMTP server allows connections from your hosting platform
 
@@ -34,6 +34,7 @@ SMTP_PORT=587
 SMTP_USER=your-email@gmail.com
 SMTP_PASSWORD=your-16-char-app-password
 MAIL_FROM=your-email@gmail.com
+CONTACT_RECIPIENTS=your-email@gmail.com,another@email.com
 ```
 
 #### For Vercel:
@@ -48,6 +49,7 @@ SMTP_PORT=587
 SMTP_USER=your-email@gmail.com
 SMTP_PASSWORD=your-app-password
 MAIL_FROM=your-email@gmail.com
+CONTACT_RECIPIENTS=your-email@gmail.com,another@email.com
 ```
 
 ---
@@ -133,7 +135,7 @@ async function testEmail() {
     
     const info = await transporter.sendMail({
       from: 'your-email@gmail.com',
-      to: 'mehedims2005@gmail.com, hello@mehedims.com',
+      to: 'your@email.com, another@email.com',
       subject: 'Test Email',
       text: 'This is a test email',
     });
@@ -195,8 +197,8 @@ Look for errors like:
 #### Error: "Recipient address rejected"
 **Solution:**
 - Verify email addresses are correct
-- Check for typos in `mehedims2005@gmail.com` and `hello@mehedims.com`
-- Make sure both email addresses can receive mail
+- Check for typos in `CONTACT_RECIPIENTS` environment variable
+- Make sure all recipient email addresses can receive mail
 
 #### Error: No error but email not received
 **Solution:**
@@ -276,14 +278,13 @@ heroku logs --tail
    ```
    Email sent successfully: {
      messageId: '...',
-     accepted: ['mehedims2005@gmail.com', 'hello@mehedims.com'],
+     accepted: ['your@email.com', 'another@email.com'],
      rejected: []
    }
    ```
 
-4. **Check Both Email Inboxes:**
-   - mehedims2005@gmail.com
-   - hello@mehedims.com
+4. **Check All Recipient Email Inboxes:**
+   - Check all addresses configured in `CONTACT_RECIPIENTS`
    - Also check spam folder
 
 ---
@@ -295,8 +296,7 @@ After fixing, verify:
 - [ ] Environment variables are correct
 - [ ] Using Gmail App Password
 - [ ] SMTP connection test passes
-- [ ] Test email received at mehedims2005@gmail.com
-- [ ] Test email received at hello@mehedims.com
+- [ ] Test email received at all configured recipient addresses
 - [ ] Logs show "Email sent successfully"
 - [ ] No errors in application logs
 
@@ -331,8 +331,7 @@ If still having issues:
 
 You'll know it's working when:
 - ✅ Logs show "Email sent successfully"
-- ✅ Both emails received at mehedims2005@gmail.com
-- ✅ Both emails received at hello@mehedims.com
+- ✅ Emails received at all configured recipient addresses
 - ✅ No errors in application logs
 - ✅ Contact form shows success message
 

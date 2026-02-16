@@ -1,6 +1,6 @@
 # SMTP Setup Guide for Gmail
 
-This guide will help you set up Gmail SMTP for the contact form to send emails to `mehedims2005@gmail.com` and `hello@mehedims.com`.
+This guide will help you set up Gmail SMTP for the contact form to send emails to your configured recipient addresses.
 
 ---
 
@@ -26,9 +26,7 @@ This guide will help you set up Gmail SMTP for the contact form to send emails t
 
 ### Step 3: Set Environment Variables
 
-The emails will be sent to **both addresses**:
-- `mehedims2005@gmail.com`
-- `hello@mehedims.com`
+The emails will be sent to the addresses configured in `CONTACT_RECIPIENTS`.
 
 #### For Heroku:
 ```bash
@@ -37,6 +35,7 @@ heroku config:set SMTP_PORT=587
 heroku config:set SMTP_USER=your-gmail@gmail.com
 heroku config:set SMTP_PASSWORD=abcdefghijklmnop
 heroku config:set MAIL_FROM=your-gmail@gmail.com
+heroku config:set CONTACT_RECIPIENTS=your@email.com,another@email.com
 ```
 
 #### For Vercel:
@@ -49,6 +48,7 @@ heroku config:set MAIL_FROM=your-gmail@gmail.com
    SMTP_USER = your-gmail@gmail.com
    SMTP_PASSWORD = abcdefghijklmnop
    MAIL_FROM = your-gmail@gmail.com
+   CONTACT_RECIPIENTS = your@email.com,another@email.com
    ```
 4. Click "Save"
 5. Redeploy your project
@@ -60,29 +60,14 @@ SMTP_PORT=587
 SMTP_USER=your-gmail@gmail.com
 SMTP_PASSWORD=abcdefghijklmnop
 MAIL_FROM=your-gmail@gmail.com
+CONTACT_RECIPIENTS=your@email.com,another@email.com
 ```
 
 ---
 
 ## 📧 Which Gmail Account to Use?
 
-You have 2 options:
-
-### Option 1: Use mehedims2005@gmail.com
-```env
-SMTP_USER=mehedims2005@gmail.com
-SMTP_PASSWORD=<app-password-for-mehedims2005>
-MAIL_FROM=mehedims2005@gmail.com
-```
-
-### Option 2: Use hello@mehedims.com (if it's Gmail)
-```env
-SMTP_USER=hello@mehedims.com
-SMTP_PASSWORD=<app-password-for-hello>
-MAIL_FROM=hello@mehedims.com
-```
-
-**Emails will be sent TO both addresses regardless of which one you use as sender.**
+You can use any Gmail account with 2FA enabled and an App Password. The `CONTACT_RECIPIENTS` variable determines where the messages are delivered, independent of the sender account.
 
 ---
 
@@ -112,9 +97,7 @@ heroku config --app your-app-name
    Message: This is a test message
    ```
 3. Click "Send Message"
-4. Check **both** email inboxes:
-   - mehedims2005@gmail.com
-   - hello@mehedims.com
+4. Check **all** recipient email inboxes configured in `CONTACT_RECIPIENTS`.
 5. Also check spam folders!
 
 ### Test 3: Check Logs
@@ -125,7 +108,7 @@ heroku logs --tail
 
 # Look for:
 # "Email sent successfully"
-# "accepted: ['mehedims2005@gmail.com', 'hello@mehedims.com']"
+# "accepted: ['your@email.com', 'another@email.com']"
 ```
 
 ---
@@ -261,8 +244,7 @@ Before going live, verify:
 - [ ] App Password generated
 - [ ] Environment variables set correctly
 - [ ] Test email sent successfully
-- [ ] Email received at mehedims2005@gmail.com
-- [ ] Email received at hello@mehedims.com
+- [ ] Email received at all configured addresses
 - [ ] No errors in logs
 - [ ] Emails not in spam
 
@@ -280,5 +262,5 @@ Before going live, verify:
 
 ---
 
-**You're all set!** Contact form will now send to both `mehedims2005@gmail.com` and `hello@mehedims.com`! 🎉
+**You're all set!** Contact form will now send to your configured recipient addresses! 🎉
 

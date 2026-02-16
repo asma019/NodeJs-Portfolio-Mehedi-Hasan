@@ -2,11 +2,6 @@
 
 ## ✅ What You Need to Know
 
-### Email Recipients (Hardcoded):
-- ✅ `mehedims2005@gmail.com` (Primary)
-- ✅ `hello@mehedims.com` (Secondary)
-- **Both receive every contact form submission**
-
 ### Required Environment Variables:
 ```env
 SMTP_HOST=smtp.gmail.com
@@ -14,6 +9,7 @@ SMTP_PORT=587
 SMTP_USER=your-gmail@gmail.com
 SMTP_PASSWORD=<16-char-app-password>
 MAIL_FROM=your-gmail@gmail.com
+CONTACT_RECIPIENTS=your@email.com,another@email.com
 ```
 
 ---
@@ -34,11 +30,12 @@ heroku config:set SMTP_PORT=587
 heroku config:set SMTP_USER=your@gmail.com
 heroku config:set SMTP_PASSWORD=your-app-password
 heroku config:set MAIL_FROM=your@gmail.com
+heroku config:set CONTACT_RECIPIENTS=your@email.com,another@email.com
 ```
 
 **Vercel:**
 - Dashboard → Settings → Environment Variables
-- Add all 5 variables above
+- Add all 6 variables above
 
 **Local (.env.local):**
 ```env
@@ -47,6 +44,7 @@ SMTP_PORT=587
 SMTP_USER=your@gmail.com
 SMTP_PASSWORD=your-app-password
 MAIL_FROM=your@gmail.com
+CONTACT_RECIPIENTS=your@email.com,another@email.com
 ```
 
 ### Step 3: Test
@@ -79,8 +77,8 @@ MAIL_FROM=your@gmail.com
 
 You'll know it's working when:
 - ✅ Contact form shows: "Email sent successfully"
-- ✅ Logs show: `accepted: ['mehedims2005@gmail.com', 'hello@mehedims.com']`
-- ✅ Both emails received
+- ✅ Logs show: `accepted: ['your@email.com', 'another@email.com']`
+- ✅ Emails received at all configured addresses
 - ✅ No errors in logs
 
 ---
