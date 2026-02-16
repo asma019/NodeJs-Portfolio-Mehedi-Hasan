@@ -48,6 +48,10 @@
       "description": "Email address to send from (same as SMTP_USER)",
       "required": true
     },
+    "CONTACT_RECIPIENTS": {
+      "description": "Comma-separated list of email addresses to receive contact form submissions",
+      "required": true
+    },
     "NEXT_PUBLIC_BASE_URL": {
       "description": "Base URL of your deployed application (leave empty for auto-detection)",
       "required": false

@@ -18,6 +18,7 @@ The easiest way to deploy this portfolio to Heroku is using the one-click deploy
    - `SMTP_USER`: Your email address
    - `SMTP_PASSWORD`: Your email password or app-specific password
    - `MAIL_FROM`: Email address to send from (same as SMTP_USER)
+   - `CONTACT_RECIPIENTS`: Comma-separated list of recipient email addresses
    - `NEXT_PUBLIC_BASE_URL`: (Optional) Will be auto-set to your Heroku URL
 4. **Click "Deploy app"**
 5. Wait for the build to complete
@@ -52,6 +53,7 @@ The easiest way to deploy this portfolio to Heroku is using the one-click deploy
    heroku config:set SMTP_USER=your-email@gmail.com
    heroku config:set SMTP_PASSWORD=your-password
    heroku config:set MAIL_FROM=your-email@gmail.com
+   heroku config:set CONTACT_RECIPIENTS=your-email@gmail.com
    heroku config:set NODE_ENV=production
    ```
 
@@ -96,6 +98,7 @@ Heroku also supports Docker deployments using Container Registry.
    heroku config:set SMTP_USER=your-email@gmail.com
    heroku config:set SMTP_PASSWORD=your-password
    heroku config:set MAIL_FROM=your-email@gmail.com
+   heroku config:set CONTACT_RECIPIENTS=your-email@gmail.com
    ```
 
 4. **Build and push the Docker image:**
@@ -127,6 +130,7 @@ Make sure to set these environment variables in your Heroku app:
 | `SMTP_USER` | SMTP username/email | `your-email@gmail.com` |
 | `SMTP_PASSWORD` | SMTP password | `your-app-password` |
 | `MAIL_FROM` | Send from email | `your-email@gmail.com` |
+| `CONTACT_RECIPIENTS` | Recipient email(s) (comma-separated) | `your-email@gmail.com,other@email.com` |
 | `NEXT_PUBLIC_BASE_URL` | Base URL | `https://your-app.herokuapp.com` |
 
 ### Setting up Gmail SMTP

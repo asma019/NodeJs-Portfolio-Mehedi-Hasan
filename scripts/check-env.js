@@ -24,7 +24,8 @@ const requiredVars = [
   'SMTP_PORT',
   'SMTP_USER',
   'SMTP_PASSWORD',
-  'MAIL_FROM'
+  'MAIL_FROM',
+  'CONTACT_RECIPIENTS'
 ];
 
 const optionalVars = [
