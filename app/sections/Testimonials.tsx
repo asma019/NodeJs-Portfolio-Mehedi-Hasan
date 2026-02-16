@@ -5,6 +5,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { FiChevronLeft, FiChevronRight, FiStar, FiMessageSquare } from "react-icons/fi";
 
+const STAR_RATING_ARRAY = [0, 1, 2, 3, 4];
+
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [autoplay, setAutoplay] = useState(true);
@@ -147,7 +149,7 @@ const Testimonials = () => {
                       </div>
                       
                       <div className="flex mb-6">
-                        {[...Array(5)].map((_, i) => (
+                        {STAR_RATING_ARRAY.map((_, i) => (
                           <motion.div
                             key={i}
                             initial={{ opacity: 0, y: 10 }}
