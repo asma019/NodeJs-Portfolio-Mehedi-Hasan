@@ -28,7 +28,7 @@ export async function POST(request: Request) {
     if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASSWORD) {
       console.error('SMTP configuration missing');
       return NextResponse.json(
-        { error: 'Email service not configured. Please contact the administrator.' },
+        { error: 'Failed to send email. Please try again later.' },
         { status: 500 }
       );
     }
@@ -54,7 +54,7 @@ export async function POST(request: Request) {
     } catch (verifyError) {
       console.error('SMTP verification failed:', verifyError);
       return NextResponse.json(
-        { error: 'Email service connection failed. Please try again later.' },
+        { error: 'Failed to send email. Please try again later.' },
         { status: 500 }
       );
     }
@@ -144,19 +144,10 @@ ${message}
   } catch (error) {
     console.error('Error sending email:', error);
     
-    // Provide more specific error messages
-    let errorMessage = 'Failed to send email. Please try again later.';
+    // Use generic error message for client responses
+    const errorMessage = 'Failed to send email. Please try again later.';
     
     if (error instanceof Error) {
-      // Check for common SMTP errors
-      if (error.message.includes('EAUTH')) {
-        errorMessage = 'Email authentication failed. Please check SMTP credentials.';
-      } else if (error.message.includes('ECONNECTION') || error.message.includes('ETIMEDOUT')) {
-        errorMessage = 'Could not connect to email server. Please try again.';
-      } else if (error.message.includes('Invalid login')) {
-        errorMessage = 'Invalid email credentials. Please contact administrator.';
-      }
-      
       console.error('Detailed error:', error.message);
     }
     
