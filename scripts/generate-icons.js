@@ -27,20 +27,24 @@ async function generateIcons() {
     const sourceBuffer = fs.readFileSync(SOURCE_IMAGE);
     
     // Generate PWA icons
-    for (const size of PWA_ICON_SIZES) {
-      await sharp(sourceBuffer)
-        .resize(size, size)
-        .toFile(path.join(ICONS_OUTPUT_DIR, `icon-${size}x${size}.png`));
-      console.log(`✅ Generated ${size}x${size} PWA icon`);
-    }
+    await Promise.all(
+      PWA_ICON_SIZES.map(async (size) => {
+        await sharp(sourceBuffer)
+          .resize(size, size)
+          .toFile(path.join(ICONS_OUTPUT_DIR, `icon-${size}x${size}.png`));
+        console.log(`✅ Generated ${size}x${size} PWA icon`);
+      })
+    );
     
     // Generate favicons
-    for (const size of FAVICON_SIZES) {
-      await sharp(sourceBuffer)
-        .resize(size, size)
-        .toFile(path.join(FAVICON_OUTPUT_DIR, `favicon-${size}x${size}.png`));
-      console.log(`✅ Generated ${size}x${size} favicon`);
-    }
+    await Promise.all(
+      FAVICON_SIZES.map(async (size) => {
+        await sharp(sourceBuffer)
+          .resize(size, size)
+          .toFile(path.join(FAVICON_OUTPUT_DIR, `favicon-${size}x${size}.png`));
+        console.log(`✅ Generated ${size}x${size} favicon`);
+      })
+    );
     
     // Generate favicon.ico (multi-size icon)
     console.log('✅ Icons generated successfully!');
