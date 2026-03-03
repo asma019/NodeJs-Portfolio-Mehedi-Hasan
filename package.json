@@ -17,7 +17,8 @@
     "vercel-build": "npm run build",
     "heroku-postbuild": "npm run build",
     "check-env": "node scripts/check-env.js",
-    "heroku-setup": "bash scripts/heroku-setup.sh"
+    "heroku-setup": "bash scripts/heroku-setup.sh",
+    "test": "node --experimental-strip-types --test tests/**/*.test.ts"
   },
   "dependencies": {
     "critters": "^0.0.20",
