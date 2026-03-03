@@ -38,8 +38,6 @@ const Navbar = () => {
     { label: "Projects", path: "#projects" },
     { label: "Testimonials", path: "#testimonials" },
     { label: "Contact", path: "#contact" },
-    // Uncomment the line below to show OG Test link in navbar (for your use only)
-    // { label: "OG Test", path: "/test-og" },
   ];
 
   return (
